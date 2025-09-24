@@ -1,0 +1,121 @@
+.homeContainer {
+  /* border: 1px solid blue; */
+  padding: 1rem;
+}
+
+.hero {
+  display: flex;
+  margin-top: 2rem;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  /* margin: 0.5rem 0; */
+  font-weight: 200;
+  text-align: center;
+  color: #ffffff;
+    /* border: 1px solid blue; */
+
+}
+
+h1 {
+  font-size: 3rem;
+  /* font-size: clamp(1.8rem, 6vw, 3rem); */
+  line-height: .9;
+  font-family: 'Pixelify Sans', sans-serif;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 auto;
+}
+
+.appHeader {
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-weight: lighter;
+  margin-top: 0;
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+}
+
+.planet {
+  max-width: 90px;
+  position: absolute;
+  top: 14.5rem;
+  left: 7rem;
+}
+
+.clouds {
+  max-width: 90px;
+  position: absolute;
+  top: 7rem;
+  left: 8rem;
+  opacity: .7;
+}
+
+.rightImg {
+  z-index: 10;
+  position: relative;
+  max-width: 200px;
+}
+
+.cloud {
+  max-width: 180px;
+  top: 6rem;
+  right: 0.4rem;
+  position: absolute;
+}
+
+.btn3d {
+  padding: .3rem 1rem;
+  background-color: #f1d235;
+  border: none;
+  color: rgb(17, 17, 17);
+  border-radius: 1000px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: .5rem;
+  letter-spacing: .5rem;
+  font-weight: 500;
+}
+
+.btnContainer {
+  width: 70%;
+  max-width: 428px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+      /* border: 1px solid blue; */
+
+}
+
+.btn3d::after {
+  content: '';
+  position: absolute;
+  height: 120%;
+  width: 102%;
+  border-radius: 1000px;
+  background-image: linear-gradient(to bottom right, #fffb00, #ff3300);
+  z-index: -1;
+}
+
+.btn3d:hover {
+  z-index: 0;
+  box-shadow: 40px 0 100px #ff3300, -40px 0 100px #fffb00;
+}
+
+.btn3d:active {
+  box-shadow: 0 3px rgb(204, 58, 0);
+  transform: translateY(3px);
+}
+
+.introText {
+  text-align: left;
+  font-size: .8rem;
+  margin-top: -5rem;
+  width: 12rem;
+
+}

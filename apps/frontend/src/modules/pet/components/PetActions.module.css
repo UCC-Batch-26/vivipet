@@ -1,0 +1,21 @@
+.petBtnContainer {
+  display: flex;
+  /* gap: 2rem;  */
+  justify-content: space-around;
+  /* align-content: center; */
+  /* border: 1px solid bisque; */
+  width: 428px;
+}
+
+.petBtn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.petBtnImg {
+  width: 50px;
+  height: auto;
+  display: block;
+}

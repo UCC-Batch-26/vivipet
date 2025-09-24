@@ -1,0 +1,15 @@
+.petContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  gap: 1rem;            
+  width: 100%;
+}
+
+.petCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
