@@ -27,7 +27,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #ff0b61;
+  /* background-color: #ff0b61; */
   z-index: 100;
   /* border: 1px solid wheat; */
 }
@@ -41,7 +41,7 @@
 .navLink {
   margin: 0 10px;
   font-size: 0.7rem;
-  color: #ffffff;
+  color: #614234;
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
@@ -52,7 +52,7 @@
 }
 
 .activeLink {
-  color: #d4d4d4;
+  color: #ddc59c;
 }
 
 main {
@@ -75,7 +75,7 @@ body {
   display: flex;
   justify-content: flex-start;
   position: relative;
-  background-color: #ff0b61;
+  background-color: #ce7536;
   z-index: -10;
     /* border: 1px solid white; */
 

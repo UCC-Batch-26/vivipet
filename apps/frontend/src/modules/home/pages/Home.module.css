@@ -14,7 +14,7 @@ p {
   /* margin: 0.5rem 0; */
   font-weight: 200;
   text-align: center;
-  color: #ffffff;
+  color: #614234;
     /* border: 1px solid blue; */
 
 }
@@ -25,17 +25,18 @@ h1 {
   line-height: .9;
   font-family: 'Pixelify Sans', sans-serif;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #614234;
   margin: 0 auto;
 }
 
 .appHeader {
   font-size: 1rem;
   text-transform: capitalize;
-  font-weight: lighter;
+  font-weight: 400;
   margin-top: 0;
   font-family: 'Roboto', sans-serif;
   text-align: left;
+  color: #614234;
 }
 
 .planet {
@@ -64,22 +65,25 @@ h1 {
   top: 6rem;
   right: 0.4rem;
   position: absolute;
+  opacity: .8;
 }
 
 .btn3d {
   padding: .3rem 1rem;
-  background-color: #f1d235;
-  border: none;
-  color: rgb(17, 17, 17);
+  width: 8rem;
+  /* background-color: #f1d235; */
+  border: 1px solid #614234;
+  /* color: rgb(17, 17, 17); */
   border-radius: 1000px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-transform: uppercase;
+  text-transform: lowercase;
   font-size: .5rem;
-  letter-spacing: .5rem;
+  letter-spacing: .2rem;
   font-weight: 500;
+  background-color: transparent;
 }
 
 .btnContainer {
@@ -92,7 +96,7 @@ h1 {
 
 }
 
-.btn3d::after {
+/* .btn3d::after {
   content: '';
   position: absolute;
   height: 120%;
@@ -100,15 +104,15 @@ h1 {
   border-radius: 1000px;
   background-image: linear-gradient(to bottom right, #fffb00, #ff3300);
   z-index: -1;
-}
+} */
 
 .btn3d:hover {
   z-index: 0;
-  box-shadow: 40px 0 100px #ff3300, -40px 0 100px #fffb00;
+  /* box-shadow: 40px 0 100px #ff3300, -40px 0 100px #fffb00; */
 }
 
 .btn3d:active {
-  box-shadow: 0 3px rgb(204, 58, 0);
+  /* box-shadow: 0 3px rgb(204, 58, 0); */
   transform: translateY(3px);
 }
 
@@ -117,5 +121,7 @@ h1 {
   font-size: .8rem;
   margin-top: -5rem;
   width: 12rem;
+  color: #614234;
+  font-weight: 400;
 
 }

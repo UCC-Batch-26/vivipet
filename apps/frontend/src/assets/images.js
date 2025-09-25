@@ -50,7 +50,10 @@ import dog2Head from "./dog2.png";
 import catHead from "./cat.png";
 import bunnyHead from "./bunny.png";
 
+import catSignUp from "./signup.png";
+
 export const IMAGES = {
+  catSignUp,
   img3D,
   cloud,
   planet,
