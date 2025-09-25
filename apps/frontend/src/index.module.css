@@ -7,6 +7,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --primary-color: #614234;
+  --shade: #32241d;
+  --tint: #af9b93;
+  --light: #e4ddda;
+  --accent-color: #800000;
+  /* --accent-color: #f1d235; */
+
 }
 
 * {
@@ -41,18 +49,18 @@
 .navLink {
   margin: 0 10px;
   font-size: 0.7rem;
-  color: #614234;
+  color:var(--primary-color);
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
 }
 
 .navLink:hover {
-  color: #c9bcb6;
+  color: var(--accent-color);
 }
 
 .activeLink {
-  color: #241a16;
+  color: var(--shade);
 }
 
 main {
@@ -68,10 +76,6 @@ main {
 }
 
 body {
-  width: 100%;
-  max-width: 428px;
-  min-height: 100vh;
-  margin: 0 auto;
   display: flex;
   justify-content: flex-start;
   position: relative;
@@ -80,3 +84,12 @@ body {
     /* border: 1px solid white; */
 
 }
+
+html, body {
+  width: 100%;
+  max-width: 428px;   
+  margin: 0 auto;     /* center content if on a bigger screen */
+  overflow-x: hidden; /* stop horizontal scrolling */
+  min-height: 100vh;
+}
+

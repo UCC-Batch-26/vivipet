@@ -1,9 +1,17 @@
 .signContainer {
-  /* border: 1px solid blue; */
+  width: 100%;
+  max-width: 428px;
+  margin: 0 auto;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* overflow: hidden; */
+  /* border: 1px solid white; */
+}
+
+.signContainer {
+  /* border: 1px solid blue; */
   /* justify-content: center; */
   gap: 2rem;
   /* margin-top: -1rem; */
@@ -20,7 +28,8 @@
   align-items: center; 
   justify-content: center; 
   /* gap: 1rem; */
-  width: 428px;
+ width: 100%;
+  max-width: 428px;
   /* border: 1px solid white; */
   height: auto;
 }
@@ -33,6 +42,8 @@
 .catSignUp {
   max-width: 15rem;
   /* height: auto; */
+    /* border: 1px solid blue; */
+
 }
 
 .signUpContainer {
@@ -47,7 +58,7 @@
   line-height: 1;
   font-family: 'Pixelify Sans', sans-serif;
   text-transform: uppercase;
-  color: #614234;
+  color: var(--shade);
   text-align: left;
 }
 
@@ -61,18 +72,18 @@ form {
 }
 
 input {
-  padding: 0.7rem;
+  padding: 0.6rem;
   border-radius: 1rem;
-  border: 1px solid #614234;
+  border: 1px solid var(--primary-color);
   font-size: .7rem;
   background-color: transparent;
-  color: #c9bcb6;
-  width: 12rem;
+  color: var(--light);
+  width: 11rem;
 }
 
 button[type="submit"] {
   padding: 0.2rem 0rem;
-  background-color: #614234;
+  background-color: var(--primary-color);
   border: none;
   border-radius: 999px;
   font-weight: 300;
@@ -81,25 +92,27 @@ button[type="submit"] {
   text-transform: lowercase;
   letter-spacing: .2rem;
   width: 7rem;
-  color: #c9bcb6;
+  color: var(--light);
   font-size: .6rem;
 }
 
 input::placeholder {
-  color: #c9bcb6;
+  color: var(--light);
   /* font-style: italic; */
   opacity: .5;
+  font-weight: 200;
+  text-transform: lowercase;
+  letter-spacing: .1rem;
 }
 
 button[type="submit"]:active {
   transform: translateY(2px);
 }
 
-p {
-  font-family: 'Roboto', sans-serif;
+.signParag {
   font-size: 0.9rem;
   font-weight: 300;
-  color: #614234;
+  color: var(--primary-color);
   text-align: center;
   margin-top: -2.5rem;
 }
@@ -127,8 +140,8 @@ p {
 
 .species {
   display: flex;
-  gap: .8rem;
-  justify-content: center;
+  gap: .5rem;
+  /* justify-content: center; */
 }
 
 .petBtn {
@@ -141,7 +154,7 @@ p {
 }
 
 .petBtn img {
-  height: 3rem;
+  height: 2.5rem;
   display: block;
 }
 

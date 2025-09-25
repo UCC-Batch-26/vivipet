@@ -68,7 +68,7 @@ export default function SignUp() {
         </div>
       </div>
 
-      <p>It only takes a minute to join your new companion!</p>
+      <p className={styles.signParag}>It only takes a minute to join your new companion!</p>
     </div>
   );
 }

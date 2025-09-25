@@ -1,35 +1,65 @@
 .homeContainer {
+  width: 100%;
+  max-width: 428px;
+  margin: 0 auto;
+  /* padding: 1rem; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* overflow: hidden; */
   /* border: 1px solid blue; */
-  padding: 1rem;
+
 }
 
 .hero {
   display: flex;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 
-p {
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.9rem;
-  /* margin: 0.5rem 0; */
-  font-weight: 200;
-  text-align: center;
-  color: #614234;
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: .6rem;
     /* border: 1px solid blue; */
 
 }
 
-h1 {
+.homeEyebrow {
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-weight: 300;
+  color: var(--primary-color);
+}
+
+.homeHeader {
   font-size: 3rem;
   /* font-size: clamp(1.8rem, 6vw, 3rem); */
   line-height: .9;
   font-family: 'Pixelify Sans', sans-serif;
   text-transform: uppercase;
-  color: #614234;
-  margin: 0 auto;
+  color: var(--shade);
+  /* margin: 0 auto; */
 }
 
-.appHeader {
+.homeParag {
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--primary-color);
+  margin-top: 1.3rem;
+}
+
+/* h1 {
+  font-size: 3rem;
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  line-height: .9;
+  font-family: 'Pixelify Sans', sans-serif;
+  text-transform: uppercase;
+  color: #614234;
+  margin: 0 auto;
+} */
+
+/* .appHeader {
   font-size: 1rem;
   text-transform: capitalize;
   font-weight: 400;
@@ -37,19 +67,19 @@ h1 {
   font-family: 'Roboto', sans-serif;
   text-align: left;
   color: #614234;
-}
+} */
 
 .planet {
   max-width: 90px;
   position: absolute;
-  top: 14.5rem;
+  top: 13rem;
   left: 7rem;
 }
 
 .clouds {
   max-width: 90px;
   position: absolute;
-  top: 7rem;
+  top: 6rem;
   left: 8rem;
   opacity: .7;
 }
@@ -72,7 +102,7 @@ h1 {
   padding: .3rem 1rem;
   width: 8rem;
   /* background-color: #f1d235; */
-  border: 1px solid #614234;
+  border: 1px solid var(--primary-color);
   /* color: rgb(17, 17, 17); */
   border-radius: 1000px;
   position: relative;
@@ -84,6 +114,8 @@ h1 {
   letter-spacing: .2rem;
   font-weight: 500;
   background-color: transparent;
+    color: var(--primary-color);
+
 }
 
 .btnContainer {
@@ -91,7 +123,7 @@ h1 {
   max-width: 428px;
   display: flex;
   justify-content: space-between;
-  margin-top: 3rem;
+  /* margin-top: 1rem; */
       /* border: 1px solid blue; */
 
 }
@@ -116,7 +148,7 @@ h1 {
   transform: translateY(3px);
 }
 
-.introText {
+/* .introText {
   text-align: left;
   font-size: .8rem;
   margin-top: -5rem;
@@ -124,4 +156,4 @@ h1 {
   color: #614234;
   font-weight: 400;
 
-}
+} */

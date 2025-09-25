@@ -11,8 +11,11 @@ export default function Home() {
     <div className={styles.homeContainer}>
       <section className={styles.hero}>
         <div className={styles.heroCopy}>
-          <p className={styles.appHeader}>Move in real life,</p>
-          <h1>play in virtual life</h1>
+          <p className={styles.homeEyebrow}>Move in real life,</p>
+          <h1 className={styles.homeHeader}>play in virtual life</h1>
+          <p className={styles.homeParag}>
+            Bring your virtual pet to life — and power its vitality and happiness with your real-world steps, runs, and activity.
+          </p>
         </div>
 
         <div className={styles.heroImage}>
@@ -53,9 +56,7 @@ export default function Home() {
         className={styles.clouds}
       />
 
-      <p className={styles.introText}>
-        Bring your virtual pet to life — <br /> and power its vitality and happiness with your real-world steps, runs, and activity.
-      </p>
+      
 
       <div className={styles.btnContainer}>
         <button
