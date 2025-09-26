@@ -1,10 +1,10 @@
-import styles from './Home.module.css';
+import styles from './home.module.css';
 import { IMAGES } from '@/assets/images';
 import characterVideo from '@/assets/videos/character3.webm';
 // import planetVideo from "@/assets/videos/planet.webm";
 import { useNavigate } from 'react-router-dom';
 
-export default function Home() {
+export function Home() {
   const navigate = useNavigate();
 
   return (

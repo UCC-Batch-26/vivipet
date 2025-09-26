@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import styles from './SignUp.module.css';
+import styles from './sign-up.module.css';
 import { IMAGES } from '@/assets/images';
 
-export default function SignUp() {
+export function SignUp() {
   const [username, setUsername] = useState('');
   const [petname, setPetname] = useState('');
   const [selectedPet, setSelectedPet] = useState(null);
@@ -16,9 +16,9 @@ export default function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log('Username:', username);
-    console.log('Pet Name:', petname);
-    console.log('Selected Pet:', selectedPet);
+    // console.log('Username:', username);
+    // console.log('Pet Name:', petname);
+    // console.log('Selected Pet:', selectedPet);
   };
 
   return (
