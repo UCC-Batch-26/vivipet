@@ -80,6 +80,7 @@ body {
   justify-content: flex-start;
   position: relative;
   background-color: #ce7536;
+  /* background-color: #cf7834; */
   z-index: -10;
     /* border: 1px solid white; */
 
@@ -88,8 +89,8 @@ body {
 html, body {
   width: 100%;
   max-width: 428px;   
-  margin: 0 auto;     /* center content if on a bigger screen */
-  overflow-x: hidden; /* stop horizontal scrolling */
+  margin: 0 auto;     
+  overflow-x: hidden; 
   min-height: 100vh;
 }
 
