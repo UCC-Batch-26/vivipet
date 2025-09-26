@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { IMAGES } from "@/assets/images";
-import styles from "./PetSprite.module.css";
+import { useState, useEffect } from 'react';
+import { IMAGES } from '@/assets/images';
+import styles from './PetSprite.module.css';
 
 export default function PetMoodDisplay({ mood, speed = 500 }) {
   const [frame, setFrame] = useState(0);

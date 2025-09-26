@@ -1,13 +1,17 @@
-import { useState, useEffect } from "react";
-import { IMAGES } from "@/assets/images";
-import styles from "./PetSprite.module.css";
+import { useState, useEffect } from 'react';
+import { IMAGES } from '@/assets/images';
+import styles from './PetSprite.module.css';
 
 export default function PetSprite({ mood, speed = 900 }) {
   const [frame, setFrame] = useState(0);
 
   const walkingFrames = [
-    IMAGES.dogFrame1, IMAGES.dogFrame2, IMAGES.dogFrame3,
-    IMAGES.dogFrame4, IMAGES.dogFrame5, IMAGES.dogFrame6,
+    IMAGES.dogFrame1,
+    IMAGES.dogFrame2,
+    IMAGES.dogFrame3,
+    IMAGES.dogFrame4,
+    IMAGES.dogFrame5,
+    IMAGES.dogFrame6,
   ];
 
   const moodFrames = {
@@ -15,7 +19,7 @@ export default function PetSprite({ mood, speed = 900 }) {
     dirty: [IMAGES.dogDirty1, IMAGES.dogDirty2, IMAGES.dogDirty3],
     sad: [IMAGES.dogSad1, IMAGES.dogSad2, IMAGES.dogSad3],
     playing: [IMAGES.dogPlay1, IMAGES.dogPlay2, IMAGES.dogPlay3],
-    feedAction: [IMAGES.dogFeed1, IMAGES.dogFeed2, IMAGES.dogFeed3],       
+    feedAction: [IMAGES.dogFeed1, IMAGES.dogFeed2, IMAGES.dogFeed3],
     showerAction: [IMAGES.dogShower1, IMAGES.dogShower2, IMAGES.dogShower3],
     playAction: [IMAGES.dogPlayAction1, IMAGES.dogPlayAction2, IMAGES.dogPlayAction3],
   };

@@ -1,13 +1,13 @@
 // src/modules/pet/pages/Pet.jsx
 
-import { useState, useEffect } from "react";
-import PetSprite from "@/modules/pet/components/PetSprite";
-import PetActions from "@/modules/pet/components/PetActions";
-import { getScheduledMood } from "@/modules/pet/utils/MoodManager";
-import styles from "@/modules/pet/pages/Pet.module.css";
+import { useState, useEffect } from 'react';
+import PetSprite from '@/modules/pet/components/PetSprite';
+import PetActions from '@/modules/pet/components/PetActions';
+import { getScheduledMood } from '@/modules/pet/utils/MoodManager';
+import styles from '@/modules/pet/pages/Pet.module.css';
 
 export default function Pet() {
-  const [mood, setMood] = useState("walking");
+  const [mood, setMood] = useState('walking');
   const [manualOverride, setManualOverride] = useState(false);
 
   useEffect(() => {
@@ -21,17 +21,17 @@ export default function Pet() {
   }, [manualOverride]);
 
   const handleAction = (action) => {
-    let actionMood = "walking";
+    let actionMood = 'walking';
 
-    if (action === "feed") actionMood = "feedAction";
-    if (action === "play") actionMood = "playAction";
-    if (action === "shower") actionMood = "showerAction";
+    if (action === 'feed') actionMood = 'feedAction';
+    if (action === 'play') actionMood = 'playAction';
+    if (action === 'shower') actionMood = 'showerAction';
 
     setMood(actionMood);
     setManualOverride(true);
 
     setTimeout(() => {
-      setMood("walking");
+      setMood('walking');
       setManualOverride(false);
     }, 5000);
   };
