@@ -52,8 +52,10 @@ import bunnyHead from "./bunny.png";
 
 import catSignUp from "./signup.png";
 import bunnySignUp from "./bunnysignup.png";
+import dogSignUp from "./dogsignup.png";
 
 export const IMAGES = {
+  dogSignUp,
   bunnySignUp,
   catSignUp,
   img3D,

@@ -7,21 +7,25 @@ export default function SignUp() {
   const [petname, setPetname] = useState("");
   const [selectedPet, setSelectedPet] = useState(null);
 
+  const petBanners = {
+    dog: IMAGES.dogSignUp,  
+    cat: IMAGES.catSignUp,
+    bunny: IMAGES.bunnySignUp 
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     console.log("Username:", username);
     console.log("Pet Name:", petname);
     console.log("Selected Pet:", selectedPet);
-
-    // later you can send this data to your backend here
   };
 
   return (
     <div className={styles.signContainer}>
       <div className={styles.headerContainer}>
         <img
-          src={IMAGES.catSignUp}
+          src={selectedPet ? petBanners[selectedPet] : IMAGES.catSignUp}
           alt="Sign up banner"
           className={styles.catSignUp}
         />
@@ -30,7 +34,6 @@ export default function SignUp() {
           <h1 className={styles.heading}>Your Pet Awaits!</h1>
 
           <form onSubmit={handleSubmit}>
-            {/* Username field */}
             <input
               type="text"
               name="username"
@@ -39,7 +42,6 @@ export default function SignUp() {
               onChange={(e) => setUsername(e.target.value)}
             />
 
-            {/* Pet name field */}
             <input
               type="text"
               name="petname"
@@ -48,7 +50,6 @@ export default function SignUp() {
               onChange={(e) => setPetname(e.target.value)}
             />
 
-            {/* Pet species selector */}
             <div className={styles.species}>
               <button
                 type="button"
