@@ -1,10 +1,10 @@
-import styles from "./Home.module.css";
-import { IMAGES } from "@/assets/images";
-import characterVideo from "@/assets/videos/character3.webm";
+import styles from './home.module.css';
+import { IMAGES } from '@/assets/images';
+import characterVideo from '@/assets/videos/character3.webm';
 // import planetVideo from "@/assets/videos/planet.webm";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
-export default function Home() {
+export function Home() {
   const navigate = useNavigate();
 
   return (
@@ -14,7 +14,8 @@ export default function Home() {
           <p className={styles.homeEyebrow}>Move in real life,</p>
           <h1 className={styles.homeHeader}>play in virtual life</h1>
           <p className={styles.homeParag}>
-            Bring your virtual pet to life — and power its vitality and happiness with your real-world steps, runs, and activity.
+            Bring your virtual pet to life — and power its vitality and happiness with your real-world steps, runs, and
+            activity.
           </p>
         </div>
 
@@ -27,48 +28,21 @@ export default function Home() {
             muted
             playsInline
           /> */}
-          
-          <video
-            src={characterVideo}
-            className={styles.rightImg}
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
 
-          <img
-            src={IMAGES.cloud}
-            alt="Cloud"
-            className={styles.cloud}
-          />
+          <video src={characterVideo} className={styles.rightImg} autoPlay loop muted playsInline />
+
+          <img src={IMAGES.cloud} alt="Cloud" className={styles.cloud} />
         </div>
       </section>
 
-      <img
-        src={IMAGES.planet}
-        alt="Planet"
-        className={styles.planet}
-      />
-      <img
-        src={IMAGES.clouds}
-        alt="Transparent clouds"
-        className={styles.clouds}
-      />
-
-      
+      <img src={IMAGES.planet} alt="Planet" className={styles.planet} />
+      <img src={IMAGES.clouds} alt="Transparent clouds" className={styles.clouds} />
 
       <div className={styles.btnContainer}>
-        <button
-          className={styles.btn3d}
-          onClick={() => navigate("/signup")}
-        >
+        <button className={styles.btn3d} onClick={() => navigate('/signup')}>
           Sign Up
         </button>
-        <button
-          className={styles.btn3d}
-          onClick={() => navigate("/login")} 
-        >
+        <button className={styles.btn3d} onClick={() => navigate('/login')}>
           Log In
         </button>
       </div>

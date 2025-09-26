@@ -1,10 +1,8 @@
-export default function About() {
+export function About() {
   return (
     <div>
       <h2>About ViViPet</h2>
-      <p>
-        ViViPet is a Tamagotchi-style virtual pet app.
-      </p>
+      <p>ViViPet is a Tamagotchi-style virtual pet app.</p>
     </div>
   );
 }
