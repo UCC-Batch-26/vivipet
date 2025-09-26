@@ -190,7 +190,6 @@ input:focus {
   color: var(--light);
 }
 
-/* Autofill override */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,

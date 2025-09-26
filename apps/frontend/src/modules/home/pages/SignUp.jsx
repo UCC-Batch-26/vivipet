@@ -14,7 +14,6 @@ export default function SignUp() {
     console.log("Pet Name:", petname);
     console.log("Selected Pet:", selectedPet);
 
-    // later you can send this data to your backend here
   };
 
   return (
@@ -30,7 +29,6 @@ export default function SignUp() {
           <h1 className={styles.heading}>Your Pet Awaits!</h1>
 
           <form onSubmit={handleSubmit}>
-            {/* Username field */}
             <input
               type="text"
               name="username"
@@ -39,7 +37,6 @@ export default function SignUp() {
               onChange={(e) => setUsername(e.target.value)}
             />
 
-            {/* Pet name field */}
             <input
               type="text"
               name="petname"
@@ -48,7 +45,6 @@ export default function SignUp() {
               onChange={(e) => setPetname(e.target.value)}
             />
 
-            {/* Pet species selector */}
             <div className={styles.species}>
               <button
                 type="button"
