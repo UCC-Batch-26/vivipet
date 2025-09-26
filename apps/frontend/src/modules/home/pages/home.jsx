@@ -50,7 +50,6 @@ export function Home() {
   );
 }
 
-
 // import { usePing } from '@/modules/home/hooks/use-ping';
 // import { useEffect } from 'react';
 // import { Link } from 'react-router';
