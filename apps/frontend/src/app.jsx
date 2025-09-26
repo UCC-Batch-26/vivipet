@@ -1,8 +1,8 @@
 import { Routes, Route, NavLink } from 'react-router-dom';
 
-import { Home } from '@/modules/home/pages/Home';
+import { Home } from '@/modules/home/pages/home';
 import { Pet } from '@/modules/pet/pages/pet';
-import { About } from '@/modules/about/pages/about-page';
+import { About } from '@/modules/about/pages/about';
 import { SignUp } from '@/modules/home/pages/sign-up';
 import styles from './index.module.css';
 import { IMAGES } from '@/assets/images';
