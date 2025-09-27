@@ -1,30 +1,25 @@
+/* ------------------ Home Container ------------------ */
 .homeContainer {
   width: 100%;
   max-width: 428px;
   margin: 0 auto;
-  /* padding: 1rem; */
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* overflow: hidden; */
-  /* border: 1px solid blue; */
-
 }
 
+/* ------------------ Hero Section ------------------ */
 .hero {
   display: flex;
-  /* margin-top: 2rem; */
 }
 
 .heroCopy {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: .6rem;
-    /* border: 1px solid blue; */
-
+  margin-top: 0.6rem;
 }
 
+/* ------------------ Typography ------------------ */
 .homeEyebrow {
   font-size: 1rem;
   text-transform: capitalize;
@@ -34,12 +29,10 @@
 
 .homeHeader {
   font-size: 3rem;
-  /* font-size: clamp(1.8rem, 6vw, 3rem); */
-  line-height: .9;
+  line-height: 0.9;
   font-family: 'Pixelify Sans', sans-serif;
   text-transform: uppercase;
   color: var(--shade);
-  /* margin: 0 auto; */
 }
 
 .homeParag {
@@ -49,26 +42,7 @@
   margin-top: 1.3rem;
 }
 
-/* h1 {
-  font-size: 3rem;
-  font-size: clamp(1.8rem, 6vw, 3rem);
-  line-height: .9;
-  font-family: 'Pixelify Sans', sans-serif;
-  text-transform: uppercase;
-  color: #614234;
-  margin: 0 auto;
-} */
-
-/* .appHeader {
-  font-size: 1rem;
-  text-transform: capitalize;
-  font-weight: 400;
-  margin-top: 0;
-  font-family: 'Roboto', sans-serif;
-  text-align: left;
-  color: #614234;
-} */
-
+/* ------------------ Images ------------------ */
 .planet {
   max-width: 90px;
   position: absolute;
@@ -81,7 +55,7 @@
   position: absolute;
   top: 6rem;
   left: 8rem;
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .rightImg {
@@ -92,65 +66,54 @@
 
 .cloud {
   max-width: 180px;
+  position: absolute;
   top: 6rem;
   right: 0.4rem;
-  position: absolute;
-  opacity: .8;
+  opacity: 0.8;
+}
+
+/* ------------------ Buttons ------------------ */
+.btnContainer {
+  width: 70%;
+  max-width: 428px;
+  display: flex;
 }
 
 .btn3d {
-  padding: .3rem 1rem;
-  width: 8rem;
-  border: 1px solid var(--primary-color);
-  border-radius: 1000px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   text-transform: lowercase;
-  font-size: .5rem;
-  letter-spacing: .2rem;
-  font-weight: 500;
+  font-size: 0.5rem;
+  letter-spacing: 0.2rem;
+  font-weight: 700;
+  color: var(--shade);
   background-color: transparent;
-    color: var(--primary-color);
-
+  border: none;
+  gap: 10px;
 }
 
-.btnContainer {
-  width: 70%;
-  max-width: 428px;
-  display: flex;
-  justify-content: space-between;
-      /* border: 1px solid blue; */
-
+.btnIcon {
+  width: 30px;
+  height: auto;
 }
-
-/* .btn3d::after {
-  content: '';
-  position: absolute;
-  height: 120%;
-  width: 102%;
-  border-radius: 1000px;
-  background-image: linear-gradient(to bottom right, #fffb00, #ff3300);
-  z-index: -1;
-} */
 
 .btn3d:hover {
+  cursor: pointer;
   z-index: 0;
-  /* box-shadow: 40px 0 100px #ff3300, -40px 0 100px #fffb00; */
 }
 
 .btn3d:active {
-  /* box-shadow: 0 3px rgb(204, 58, 0); */
   transform: translateY(3px);
 }
 
-/* .introText {
-  text-align: left;
-  font-size: .8rem;
-  margin-top: -5rem;
-  width: 12rem;
-  color: #614234;
-  font-weight: 400;
-
-} */
+.emptyBtn {
+  border: 1px solid var(--primary-color);
+  width: 9rem;
+  height: 1.5rem;
+  position: absolute;
+  border-radius: 0rem 1rem 1rem 0rem;
+  z-index: -1;
+  left: .1rem;
+}
