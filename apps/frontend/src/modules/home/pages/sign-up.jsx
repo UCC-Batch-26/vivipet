@@ -8,6 +8,7 @@ import dogGif from '@/assets/videos/dogGif.gif';
 import { SignUpForm } from './sign-up-form';
 import { LoginForm } from './log-in-form';
 import { WelcomeScreen } from './welcome-screen';
+import { signUp } from '../services/user-service';
 
 export function SignUp() {
   const [username, setUsername] = useState('');
@@ -39,16 +40,33 @@ export function SignUp() {
     }
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!username || !petname || !selectedPet) {
       alert('Please fill all fields and choose a pet!');
       return;
     }
 
-    localStorage.setItem('petpalUser', JSON.stringify({ username, petname, selectedPet }));
+    try {
+      const data = await signUp(username, petname, selectedPet);
 
-    setIsSignedUp(true);
+      localStorage.setItem(
+        'petpalUser',
+        JSON.stringify({
+          username: data.user.username,
+          petname: data.pet.name,
+          selectedPet: data.pet.type,
+        }),
+      );
+
+      setUsername(data.user.username);
+      setPetname(data.pet.name);
+      setSelectedPet(data.pet.type);
+      setIsSignedUp(true);
+    } catch (error) {
+      alert('Sign-up failed');
+      console.log('error', error);
+    }
   };
 
   const handleLogin = (e) => {
