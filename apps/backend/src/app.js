@@ -1,5 +1,5 @@
 import { errorHandler } from '#modules/common/middleware/error-handler.js';
-import sampleRoutes from '#modules/samples/routes.js';
+//import sampleRoutes from '#modules/samples/routes.js';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
@@ -7,6 +7,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import process from 'node:process';
 import { db } from './db.js';
+import authRoutes from '#modules/auth/routes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -42,8 +43,8 @@ app.get('/ping', (req, res) => {
 });
 
 // Sample route
-app.use('/sample', sampleRoutes);
-
+//app.use('/sample', sampleRoutes);
+app.use('/auth', authRoutes);
 // Error handling middleware, MUST always be the last
 app.use(errorHandler);
 
