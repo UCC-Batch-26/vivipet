@@ -50,7 +50,10 @@ import catSignUp from './signup.png';
 import bunnySignUp from './bunnysignup.png';
 import dogSignUp from './dogsignup.png';
 
+import playBtn from './play-btn.png';
+
 export const IMAGES = {
+  playBtn,
   dogSignUp,
   bunnySignUp,
   catSignUp,

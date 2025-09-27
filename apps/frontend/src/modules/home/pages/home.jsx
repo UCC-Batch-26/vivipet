@@ -40,12 +40,24 @@ export function Home() {
 
       <div className={styles.btnContainer}>
         <button className={styles.btn3d} onClick={() => navigate('/signup')}>
-          Sign Up
+          <img
+            src={IMAGES.playBtn}
+            alt="Play Icon"
+            className={styles.btnIcon}
+          />
+          Let’s Paw-ty
+          <div className={styles.emptyBtn}></div>
+        </button>
+      </div>
+
+      {/* <div className={styles.btnContainer}>
+        <button className={styles.btn3d} onClick={() => navigate('/signup')}>
+          Let’s Paw-ty
         </button>
         <button className={styles.btn3d} onClick={() => navigate('/login')}>
           Log In
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
