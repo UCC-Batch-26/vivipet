@@ -40,11 +40,7 @@ export function Home() {
 
       <div className={styles.btnContainer}>
         <button className={styles.btn3d} onClick={() => navigate('/signup')}>
-          <img
-            src={IMAGES.playBtn}
-            alt="Play Icon"
-            className={styles.btnIcon}
-          />
+          <img src={IMAGES.playBtn} alt="Play Icon" className={styles.btnIcon} />
           Let’s Paw-ty
           <div className={styles.emptyBtn}></div>
         </button>
