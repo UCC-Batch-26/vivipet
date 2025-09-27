@@ -4,6 +4,7 @@ import { Home } from '@/modules/home/pages/home';
 import { Pet } from '@/modules/pet/pages/pet';
 import { About } from '@/modules/about/pages/about';
 import { SignUp } from '@/modules/home/pages/sign-up';
+// import { Login } from '@/modules/home/pages/log-in';
 import styles from './index.module.css';
 import { IMAGES } from '@/assets/images';
 
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/pet" element={<Pet />} />
           <Route path="/about" element={<About />} />
           <Route path="/signup" element={<SignUp />} />
+          {/* <Route path="/login" element={<Login/>}/> */}
         </Routes>
       </main>
     </div>

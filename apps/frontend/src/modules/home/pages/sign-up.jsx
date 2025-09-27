@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './sign-up.module.css';
+import containerStyles from './sign-up.module.css';
 import { IMAGES } from '@/assets/images';
-import bunnyVideo from '@/assets/videos/bunnyVid.webm';
-import catVideo from '@/assets/videos/catVid.webm';
-import dogVideo from '@/assets/videos/dogVid.webm';
+import bunnyVideo from '@/assets/videos/bunnyGif.gif';
+import catGif from '@/assets/videos/catGif.gif';
+import dogGif from '@/assets/videos/dogGif.gif';
+import { SignUpForm } from './sign-up-form';
+import { LoginForm } from './log-in-form';
+import { WelcomeScreen } from './welcome-screen';
 
 export function SignUp() {
   const [username, setUsername] = useState('');
   const [petname, setPetname] = useState('');
   const [selectedPet, setSelectedPet] = useState(null);
   const [isSignedUp, setIsSignedUp] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
 
   const petBanners = {
@@ -19,11 +23,21 @@ export function SignUp() {
     bunny: IMAGES.bunnySignUp,
   };
 
-  const petVideos = {
-    dog: dogVideo,
-    cat: catVideo,
+  const petMedia = {
+    dog: dogGif,
+    cat: catGif,
     bunny: bunnyVideo,
   };
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('petpalUser');
+    if (storedUser) {
+      const { username, petname, selectedPet } = JSON.parse(storedUser);
+      setSelectedPet(selectedPet);
+      setPetname(petname);
+      setUsername(username);
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,80 +45,72 @@ export function SignUp() {
       alert('Please fill all fields and choose a pet!');
       return;
     }
+
+    localStorage.setItem('petpalUser', JSON.stringify({ username, petname, selectedPet }));
+
     setIsSignedUp(true);
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (!username) {
+      alert('Please enter your username!');
+      return;
+    }
+
+    const storedUser = localStorage.getItem('petpalUser');
+    if (storedUser) {
+      const { username: savedUser } = JSON.parse(storedUser);
+      if (username === savedUser) {
+        navigate('/pet');
+      } else {
+        alert('User not found! Please sign up first.');
+      }
+    } else {
+      alert('No user found! Please sign up first.');
+    }
   };
 
   const handleStart = () => navigate('/pet');
 
   return (
-    <div className={styles.signContainer}>
-      <div className={styles.headerContainer}>
-        {!isSignedUp && (
-          <img
-            src={selectedPet ? petBanners[selectedPet] : IMAGES.catSignUp}
-            alt="Sign up banner"
-            className={styles.catSignUp}
+    <div className={containerStyles.signContainer}>
+      {!isSignedUp ? (
+        isLogin ? (
+          <LoginForm
+            username={username}
+            setUsername={setUsername}
+            selectedPet={selectedPet}
+            petBanners={petBanners}
+            handleLogin={handleLogin}
           />
-        )}
+        ) : (
+          <>
+            <SignUpForm
+              username={username}
+              setUsername={setUsername}
+              petname={petname}
+              setPetname={setPetname}
+              selectedPet={selectedPet}
+              setSelectedPet={setSelectedPet}
+              petBanners={petBanners}
+              handleSubmit={handleSubmit}
+            />
 
-        <div className={styles.signUpContainer}>
-          {!isSignedUp ? (
-            <>
-              <h1 className={styles.heading}>Your Pet Awaits!</h1>
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  name="username"
-                  placeholder="Username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-                <input
-                  type="text"
-                  name="petname"
-                  placeholder="Pet name"
-                  value={petname}
-                  onChange={(e) => setPetname(e.target.value)}
-                />
-                <div className={styles.species}>
-                  {['dog', 'cat', 'bunny'].map((pet) => (
-                    <button
-                      key={pet}
-                      type="button"
-                      className={`${styles.petBtn} ${selectedPet === pet ? styles.activePet : ''}`}
-                      onClick={() => setSelectedPet(pet)}
-                    >
-                      <img src={IMAGES[`${pet}Head`]} alt={pet} />
-                    </button>
-                  ))}
-                </div>
-                <button type="submit">Sign Up</button>
-              </form>
-            </>
-          ) : (
-            <>
-              <div className={styles.welcomeContainer}>
-                <h1 className={styles.heading2}>Welcome aboard, {username}!</h1>
-                <p className={styles.welcomeParag}>
-                  Your pet is waiting for you — let’s make some pawsitive memories together with {petname}.
-                </p>
-
-                <div className={styles.animationPlaceholder}></div>
-
-                {selectedPet && (
-                  <video src={petVideos[selectedPet]} className={styles.bunnyVid} autoPlay loop muted playsInline />
-                )}
-
-                <button className={styles.startBtn} onClick={handleStart}>
-                  Start
-                </button>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
-
-      {!isSignedUp && <p className={styles.signParag}>It only takes a minute to join your new companion!</p>}
+            <button className={containerStyles.switchBtn} onClick={() => setIsLogin(true)}>
+              Already have an account? Log in
+            </button>
+          </>
+        )
+      ) : (
+        <WelcomeScreen
+          username={username}
+          petname={petname}
+          selectedPet={selectedPet}
+          petMedia={petMedia}
+          handleStart={handleStart}
+        />
+      )}
     </div>
   );
 }
