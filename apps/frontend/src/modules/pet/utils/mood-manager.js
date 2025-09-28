@@ -1,5 +1,3 @@
-// src/components/MoodManager.js
-
 export const MEAL_TIMES = {
   breakfast: '07:38',
   lunch: '12:00',

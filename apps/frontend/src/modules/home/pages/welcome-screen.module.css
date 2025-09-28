@@ -20,7 +20,7 @@
 /* Start button */
 .startBtn {
   padding: 0.2rem 0rem;
-  background-color: var(--primary-color);
+  background-color: var(--shade);
   border: none;
   border-radius: 999px;
   font-weight: 300;
@@ -45,7 +45,7 @@
   height: auto;
 }
 
-.animationPlaceholder {
+/* .animationPlaceholder {
   width: 13rem;
   height: 11rem;
   background-color: #cf7834;
@@ -55,4 +55,4 @@
   border-radius: 2rem;
   overflow: hidden;
   box-shadow: 0 0 20px 5px #cf7834;
-}
+} */

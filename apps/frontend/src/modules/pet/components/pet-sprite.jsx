@@ -5,14 +5,7 @@ import styles from './pet-sprite.module.css';
 export function PetSprite({ mood, speed = 900 }) {
   const [frame, setFrame] = useState(0);
 
-  const walkingFrames = [
-    IMAGES.dogFrame1,
-    IMAGES.dogFrame2,
-    IMAGES.dogFrame3,
-    IMAGES.dogFrame4,
-    IMAGES.dogFrame5,
-    IMAGES.dogFrame6,
-  ];
+  const walkingFrames = [IMAGES.dogWalkingGif];
 
   const moodFrames = {
     hungry: [IMAGES.dogHungry1, IMAGES.dogHungry2, IMAGES.dogHungry3],
@@ -27,6 +20,8 @@ export function PetSprite({ mood, speed = 900 }) {
   const frames = moodFrames[mood] || walkingFrames;
 
   useEffect(() => {
+    if (frames.length === 1) return;
+
     const interval = setInterval(() => {
       setFrame((prev) => (prev + 1) % frames.length);
     }, speed);
@@ -36,7 +31,6 @@ export function PetSprite({ mood, speed = 900 }) {
   return (
     <div className={styles.petSprite}>
       <img src={frames[frame]} alt={mood} className={styles.spriteImage} />
-      {/* <p>Current Mood: {mood}</p> */}
     </div>
   );
 }

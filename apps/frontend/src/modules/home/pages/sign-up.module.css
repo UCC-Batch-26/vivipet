@@ -37,7 +37,7 @@
   margin-top: 1rem;
   background: none;
   border: none;
-  color: var(--primary-color);
+  color: var(--shade);
   font-size: 0.7rem;
   cursor: pointer;
   text-decoration: underline;

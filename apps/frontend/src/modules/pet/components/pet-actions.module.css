@@ -1,8 +1,19 @@
+.petContainer {
+  display: flex;
+  flex-direction: column;
+  /* gap: 2rem;  */
+  /* justify-content: space-around; */
+  /* align-content: center; */
+  /* border: 1px solid bisque; */
+  width: 428px;
+  position: relative;
+}
+
 .petBtnContainer {
   display: flex;
-  /* gap: 2rem;  */
+  gap: 2rem; 
   justify-content: space-around;
-  /* align-content: center; */
+  align-content: center;
   /* border: 1px solid bisque; */
   width: 428px;
 }
@@ -15,7 +26,27 @@
 }
 
 .petBtnImg {
-  width: 50px;
+  width: 80px;
   height: auto;
   display: block;
+}
+
+.petBtnImg:active {
+  transform: translateY(3px);
+}
+
+
+.healthBar {
+  position: absolute;
+  max-width: 100px;
+  width: 100%;
+  margin: -5rem auto;
+  align-items: center;
+  /* top: 50%; */
+  left: 75%;
+  transform: translate(-50%, -50%);
+  top: -250%;
+  justify-content: center;
+
+
 }
