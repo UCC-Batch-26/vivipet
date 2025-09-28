@@ -52,7 +52,14 @@ import dogSignUp from './dogsignup.png';
 
 import playBtn from './play-btn.png';
 
+import petBg from './pet-bg.png';
+import healthBar from './health-bar.png';
+import dogWalkingGif from './sprites/happy-dog-sprite.gif';
+
 export const IMAGES = {
+  dogWalkingGif,
+  healthBar,
+  petBg,
   playBtn,
   dogSignUp,
   bunnySignUp,

@@ -1,10 +1,9 @@
-// src/modules/pet/pages/Pet.jsx
-
 import { useState, useEffect } from 'react';
 import { PetSprite } from '@/modules/pet/components/pet-sprite';
 import { PetActions } from '@/modules/pet/components/pet-actions';
 import { getScheduledMood } from '@/modules/pet/utils/mood-manager';
 import styles from '@/modules/pet/pages/pet.module.css';
+import { IMAGES } from '@/assets/images';
 
 export function Pet() {
   const [mood, setMood] = useState('walking');
@@ -16,7 +15,7 @@ export function Pet() {
         const scheduledMood = getScheduledMood();
         setMood(scheduledMood);
       }
-    }, 1000 * 60); // check every minute
+    }, 1000 * 60);
     return () => clearInterval(interval);
   }, [manualOverride]);
 
@@ -38,10 +37,18 @@ export function Pet() {
 
   return (
     <div className={styles.petContainer}>
-      <section className={styles.petCopy}>
-        <PetSprite mood={mood} />
+      {/* Background with centered pet */}
+      <div className={styles.petBgWrapper}>
+        <img src={IMAGES.petBg} alt="wooden background" className={styles.petBg} />
+        <div className={styles.petCopy}>
+          <PetSprite mood={mood} />
+        </div>
+      </div>
+
+      {/* Actions BELOW background */}
+      <div className={styles.petActionsWrapper}>
         <PetActions onHandleAction={onHandleAction} />
-      </section>
+      </div>
     </div>
   );
 }
