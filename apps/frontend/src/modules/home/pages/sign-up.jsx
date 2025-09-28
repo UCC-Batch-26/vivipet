@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import containerStyles from './sign-up.module.css';
 import { IMAGES } from '@/assets/images';
@@ -8,7 +8,7 @@ import dogGif from '@/assets/videos/dogGif.gif';
 import { SignUpForm } from './sign-up-form';
 import { LoginForm } from './log-in-form';
 import { WelcomeScreen } from './welcome-screen';
-import { signUp } from '../services/user-service';
+import { signUp, login } from '../services/user-service';
 
 export function SignUp() {
   const [username, setUsername] = useState('');
@@ -30,16 +30,6 @@ export function SignUp() {
     bunny: bunnyVideo,
   };
 
-  useEffect(() => {
-    const storedUser = localStorage.getItem('petpalUser');
-    if (storedUser) {
-      const { username, petname, selectedPet } = JSON.parse(storedUser);
-      setSelectedPet(selectedPet);
-      setPetname(petname);
-      setUsername(username);
-    }
-  }, []);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!username || !petname || !selectedPet) {
@@ -48,44 +38,28 @@ export function SignUp() {
     }
 
     try {
-      const data = await signUp(username, petname, selectedPet);
-
-      localStorage.setItem(
-        'petpalUser',
-        JSON.stringify({
-          username: data.user.username,
-          petname: data.pet.name,
-          selectedPet: data.pet.type,
-        }),
-      );
-
-      setUsername(data.user.username);
-      setPetname(data.pet.name);
-      setSelectedPet(data.pet.type);
+      await signUp(username, petname, selectedPet);
       setIsSignedUp(true);
     } catch (error) {
-      alert('Sign-up failed');
+      alert(error.message);
       console.log('error', error);
     }
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     if (!username) {
       alert('Please enter your username!');
       return;
     }
 
-    const storedUser = localStorage.getItem('petpalUser');
-    if (storedUser) {
-      const { username: savedUser } = JSON.parse(storedUser);
-      if (username === savedUser) {
-        navigate('/pet');
-      } else {
-        alert('User not found! Please sign up first.');
-      }
-    } else {
-      alert('No user found! Please sign up first.');
+    try {
+      await login(username);
+
+      navigate('/pet');
+    } catch (error) {
+      alert(error.message);
+      console.log('error', error);
     }
   };
 
