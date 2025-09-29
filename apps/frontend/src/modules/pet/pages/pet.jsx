@@ -1,5 +1,5 @@
-// Pet.jsx
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { PetSprite } from '@/modules/pet/components/pet-sprite';
 import { PetActions } from '@/modules/pet/components/pet-actions';
 import { getScheduledMood } from '@/modules/pet/utils/mood-manager';
@@ -7,6 +7,8 @@ import styles from '@/modules/pet/pages/pet.module.css';
 import { IMAGES } from '@/assets/images';
 
 export function Pet() {
+  const location = useLocation();
+  const { selectedPet } = location.state || { selectedPet: 'dog' };
   const [mood, setMood] = useState(null);
   const [manualOverride, setManualOverride] = useState(false);
 
@@ -43,7 +45,7 @@ export function Pet() {
       <div className={styles.petBgWrapper}>
         <img src={IMAGES.petBg} alt="wooden background" className={styles.petBg} />
         <div className={styles.petCopy}>
-          <PetSprite mood={mood} />
+          <PetSprite petType={selectedPet} mood={mood} />
         </div>
       </div>
 

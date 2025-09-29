@@ -63,7 +63,7 @@ export function SignUp() {
     }
   };
 
-  const handleStart = () => navigate('/pet');
+  const handleStart = () => navigate('/pet', { state: { selectedPet } });
 
   return (
     <div className={containerStyles.signContainer}>
