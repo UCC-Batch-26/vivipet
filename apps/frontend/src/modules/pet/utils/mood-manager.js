@@ -1,6 +1,6 @@
 export const MEAL_TIMES = {
   breakfast: '07:38',
-  lunch: '12:00',
+  lunch: '12:42',
   dinner: '19:27',
 };
 
@@ -14,15 +14,25 @@ function parseTimeToDate(timeStr) {
 export function getScheduledMood() {
   const now = new Date();
 
+  // for (const meal of Object.values(MEAL_TIMES)) {
+  //   const mealTime = parseTimeToDate(meal);
+  //   const diff = (now - mealTime) / 1000 / 60;
+
+  //   if (diff >= 0 && diff < 15) return 'hungry';
+  //   if (diff >= 30 && diff < 60) return 'dirty';
+  //   if (diff >= 60 && diff < 90) return 'sad';
+  //   if (diff >= 90 && diff < 120) return 'playing';
+  // }
+
   for (const meal of Object.values(MEAL_TIMES)) {
     const mealTime = parseTimeToDate(meal);
-    const diff = (now - mealTime) / 1000 / 60; // diff in minutes
+    const diff = (now - mealTime) / 1000; // in seconds
 
-    if (diff >= 0 && diff < 15) return 'hungry'; // hungry during meal
-    if (diff >= 30 && diff < 60) return 'dirty'; // dirty 30 min after meal
-    if (diff >= 60 && diff < 90) return 'sad'; // sad 30 min after dirty
-    if (diff >= 90 && diff < 120) return 'playing'; // play 30 min after sad
+    if (diff >= 0 && diff < 10) return 'hungry';
+    if (diff >= 15 && diff < 20) return 'dirty';
+    if (diff >= 20 && diff < 30) return 'sad';
+    if (diff >= 30 && diff < 40) return 'playing';
   }
 
-  return 'walking';
+  return null;
 }
