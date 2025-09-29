@@ -1,15 +1,16 @@
 .petSprite {
   position: relative;
-  height: 150px;
-  width: 150px;
+  height: auto;
+  width: 1905px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  margin-top: 8rem;
+  /* margin-top: 8rem; */
+  /* border: 1px solid black; */
 }
 
 .spriteImage {
-  width: 100px;
+  width: 400px;
   height: auto;
 }
