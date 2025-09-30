@@ -11,10 +11,10 @@ export function PetSprite({ petType = 'dog', mood = 'walking', speed = 900 }) {
       hungry: [IMAGES.hungryDog],
       dirty: [IMAGES.dirtyDog],
       // sad: [IMAGES.dogSad1, IMAGES.dogSad2, IMAGES.dogSad3],
-      playing: [IMAGES.dogPlay1, IMAGES.dogPlay2, IMAGES.dogPlay3],
+      // playing: [IMAGES.dogPlaying],
       feedAction: [IMAGES.eatingDog],
       showerAction: [IMAGES.dogShower],
-      // playAction: [IMAGES.dogPlayAction1, IMAGES.dogPlayAction2, IMAGES.dogPlayAction3],
+      playAction: [IMAGES.dogPlaying],
     },
     cat: {
       walking: [IMAGES.defaultCatMood],
