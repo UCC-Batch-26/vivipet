@@ -1,14 +1,18 @@
-import { Routes, Route, NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Routes, Route, NavLink, Navigate, useNavigate } from 'react-router-dom';
 
 import { Home } from '@/modules/home/pages/home';
 import { Pet } from '@/modules/pet/pages/pet';
 import { About } from '@/modules/about/pages/about';
 import { SignUp } from '@/modules/home/pages/sign-up';
-// import { Login } from '@/modules/home/pages/log-in';
+import { LoginPage } from '@/modules/home/pages/log-in';
 import styles from './index.module.css';
 import { IMAGES } from '@/assets/images';
 
 export default function App() {
+  const [loggedInUser, setLoggedInUser] = useState(null); // Tracks login status
+  const navigate = useNavigate();
+
   return (
     <div className={styles.appContainer}>
       <header className={styles.navbar}>
@@ -31,50 +35,28 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/pet" element={<Pet />} />
+
+          {/* Protect Pet route: redirect to login if not logged in */}
+          <Route path="/pet" element={loggedInUser ? <Pet /> : <Navigate to="/login" replace />} />
+
           <Route path="/about" element={<About />} />
           <Route path="/signup" element={<SignUp />} />
-          {/* <Route path="/login" element={<Login/>}/> */}
+
+          {/* Login page passes onLogin callback */}
+          <Route
+            path="/login"
+            element={
+              <LoginPage
+                petBanners={IMAGES.petBanners}
+                onLogin={(username) => {
+                  setLoggedInUser(username);
+                  navigate('/pet'); // automatically go to Pet page after login
+                }}
+              />
+            }
+          />
         </Routes>
       </main>
     </div>
   );
 }
-
-// import { HomePage } from '@/modules/home/pages/home-page';
-// import { SampleLayout } from '@/modules/sample/layouts/sample-layout';
-// import { SampleAddPage } from '@/modules/sample/pages/sample-add-page';
-// import { SampleIndexPage } from '@/modules/sample/pages/sample-index-page';
-// import { SampleViewPage } from '@/modules/sample/pages/sample-view-page';
-// import { createBrowserRouter, RouterProvider } from 'react-router';
-
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <HomePage />,
-//     index: true,
-//   },
-//   {
-//     path: '/sample',
-//     element: <SampleLayout />,
-//     children: [
-//       {
-//         path: '',
-//         index: true,
-//         element: <SampleIndexPage />,
-//       },
-//       {
-//         path: ':id',
-//         element: <SampleViewPage />,
-//       },
-//       {
-//         path: 'add',
-//         element: <SampleAddPage />,
-//       },
-//     ],
-//   },
-// ]);
-
-// export function App() {
-//   return <RouterProvider router={router} />;
-// }
