@@ -37,7 +37,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
 
           {/* Protect Pet route: redirect to login if not logged in */}
-          <Route path="/pet" element={loggedInUser ? <Pet /> : <Navigate to="/login" replace />} />
+          <Route path="/pet/:userId/activity" element={loggedInUser ? <Pet /> : <Navigate to="/login" replace />} />
 
           <Route path="/about" element={<About />} />
           <Route path="/signup" element={<SignUp />} />
@@ -48,9 +48,9 @@ export default function App() {
             element={
               <LoginPage
                 petBanners={IMAGES.petBanners}
-                onLogin={(username) => {
-                  setLoggedInUser(username);
-                  navigate('/pet'); // automatically go to Pet page after login
+                onLogin={(user) => {
+                  setLoggedInUser(user);
+                  navigate(`/pet/${user._id}/activity`); // automatically go to Pet page after login
                 }}
               />
             }

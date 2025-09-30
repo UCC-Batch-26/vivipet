@@ -14,6 +14,7 @@ export function SignUp() {
   const [petname, setPetname] = useState('');
   const [selectedPet, setSelectedPet] = useState(null);
   const [isSignedUp, setIsSignedUp] = useState(false);
+  const [userId, setUserId] = useState(null);
   const navigate = useNavigate();
 
   const petBanners = {
@@ -36,7 +37,8 @@ export function SignUp() {
     }
 
     try {
-      await signUp(username, petname, selectedPet);
+      const data = await signUp(username, petname, selectedPet);
+      setUserId(data);
       setIsSignedUp(true);
     } catch (error) {
       alert(error.message);
@@ -44,7 +46,11 @@ export function SignUp() {
     }
   };
 
-  const handleStart = () => navigate('/pet', { state: { selectedPet } });
+  const handleStart = () => {
+    if (userId) {
+      navigate(`/pet/${userId}/activity`);
+    }
+  };
 
   return (
     <div className={containerStyles.signContainer}>

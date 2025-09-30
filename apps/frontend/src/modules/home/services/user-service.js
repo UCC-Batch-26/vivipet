@@ -18,7 +18,7 @@ export async function signUp(username, petname, selectedPet) {
       throw new Error(data.error || 'Failed to Sign-up');
     }
 
-    return data;
+    return data.user._id;
   } catch (error) {
     console.error('Sign-up error', error);
     throw error;
@@ -39,7 +39,7 @@ export async function login(username) {
       throw new Error(data.message || 'Failed to Login');
     }
 
-    return data;
+    return data.user;
   } catch (error) {
     console.error('Login error', error);
     throw error;

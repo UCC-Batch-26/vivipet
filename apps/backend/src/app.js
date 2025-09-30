@@ -8,6 +8,7 @@ import morgan from 'morgan';
 import process from 'node:process';
 import { db } from './db.js';
 import authRoutes from '#modules/auth/routes.js';
+import petRoutes from '#modules/pets/routes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -45,6 +46,7 @@ app.get('/ping', (req, res) => {
 // Sample route
 //app.use('/sample', sampleRoutes);
 app.use('/auth', authRoutes);
+app.use('/pet', petRoutes);
 // Error handling middleware, MUST always be the last
 app.use(errorHandler);
 

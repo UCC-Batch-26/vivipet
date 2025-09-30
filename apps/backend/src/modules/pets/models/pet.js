@@ -7,17 +7,18 @@ export const PET_TYPE = {
 };
 
 export const PET_MOOD = {
-  NEUTRAL: 'neutral',
+  CALM: 'calm',
   HAPPY: 'happy',
   SAD: 'sad',
   HUNGRY: 'hungry',
+  DIRTY: 'dirty',
 };
 
 export const PET_ACTIVITY = {
   IDLE: 'idle',
-  EATING: 'eating',
-  PLAYING: 'playing',
-  CLEANING: 'cleaning',
+  FEED: 'feed',
+  PLAY: 'play',
+  SHOWER: 'shower',
 };
 
 const petSchema = new Schema(
@@ -34,7 +35,7 @@ const petSchema = new Schema(
     mood: {
       type: String,
       enum: Object.values(PET_MOOD),
-      default: 'neutral',
+      default: 'calm',
     },
     activity: {
       type: String,
