@@ -59,8 +59,10 @@ import hungryDog from './sprites/hungry-dog-sprite.gif';
 import eatingDog from './sprites/eating-dog-sprite.gif';
 import dirtyDog from './sprites/dirty-dog-sprite.gif';
 import defaultCatMood from './sprites/default-cat-mood.gif';
+import catShower from './sprites/shower-cat-mood.gif';
 
 export const IMAGES = {
+  catShower,
   defaultCatMood,
   dirtyDog,
   eatingDog,

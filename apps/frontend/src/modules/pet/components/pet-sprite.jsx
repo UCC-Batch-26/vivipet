@@ -23,7 +23,7 @@ export function PetSprite({ petType = 'dog', mood = 'walking', speed = 900 }) {
       sad: [IMAGES.catSad1, IMAGES.catSad2],
       playing: [IMAGES.catPlay1, IMAGES.catPlay2],
       feedAction: [IMAGES.eatingCat],
-      showerAction: [IMAGES.catShower1, IMAGES.catShower2],
+      showerAction: [IMAGES.catShower],
       playAction: [IMAGES.catPlayAction1, IMAGES.catPlayAction2],
     },
     bunny: {
