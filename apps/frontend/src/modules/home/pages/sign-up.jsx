@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // ✅ import Link
 import containerStyles from './sign-up.module.css';
 import { IMAGES } from '@/assets/images';
 import bunnyVideo from '@/assets/videos/bunnyGif.gif';
 import catGif from '@/assets/videos/catGif.gif';
 import dogGif from '@/assets/videos/dogGif.gif';
 import { SignUpForm } from './sign-up-form';
-import { LoginForm } from './log-in-form';
 import { WelcomeScreen } from './welcome-screen';
-import { signUp, login } from '../services/user-service';
+import { signUp } from '../services/user-service';
 
 export function SignUp() {
   const [username, setUsername] = useState('');
   const [petname, setPetname] = useState('');
   const [selectedPet, setSelectedPet] = useState(null);
   const [isSignedUp, setIsSignedUp] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
 
   const petBanners = {
@@ -46,54 +44,28 @@ export function SignUp() {
     }
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    if (!username) {
-      alert('Please enter your username!');
-      return;
-    }
-
-    try {
-      await login(username);
-
-      navigate('/pet');
-    } catch (error) {
-      alert(error.message);
-      console.log('error', error);
-    }
-  };
-
   const handleStart = () => navigate('/pet', { state: { selectedPet } });
 
   return (
     <div className={containerStyles.signContainer}>
       {!isSignedUp ? (
-        isLogin ? (
-          <LoginForm
+        <>
+          <SignUpForm
             username={username}
             setUsername={setUsername}
+            petname={petname}
+            setPetname={setPetname}
             selectedPet={selectedPet}
+            setSelectedPet={setSelectedPet}
             petBanners={petBanners}
-            handleLogin={handleLogin}
+            handleSubmit={handleSubmit}
           />
-        ) : (
-          <>
-            <SignUpForm
-              username={username}
-              setUsername={setUsername}
-              petname={petname}
-              setPetname={setPetname}
-              selectedPet={selectedPet}
-              setSelectedPet={setSelectedPet}
-              petBanners={petBanners}
-              handleSubmit={handleSubmit}
-            />
 
-            <button className={containerStyles.switchBtn} onClick={() => setIsLogin(true)}>
-              Already have an account? Log in
-            </button>
-          </>
-        )
+          {/* ✅ Use Link to navigate to /login */}
+          {/* <Link to="/login" className={containerStyles.switchBtn}>
+            Already have an account? Log in
+          </Link> */}
+        </>
       ) : (
         <WelcomeScreen
           username={username}

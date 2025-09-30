@@ -2,6 +2,7 @@ import React from 'react';
 import formStyles from './sign-up-form.module.css';
 import sharedStyles from './sign-up.module.css';
 import { IMAGES } from '@/assets/images';
+import { Link } from 'react-router-dom';
 
 export function SignUpForm({
   username,
@@ -42,6 +43,7 @@ export function SignUpForm({
               value={petname}
               onChange={(e) => setPetname(e.target.value)}
             />
+
             <div className={formStyles.species}>
               {['dog', 'cat', 'bunny'].map((pet) => (
                 <button
@@ -54,8 +56,14 @@ export function SignUpForm({
                 </button>
               ))}
             </div>
+
             <button type="submit">Sign Up</button>
           </form>
+
+          {/* ✅ Add this link back to Login */}
+          <Link to="/login" className={sharedStyles.switchBtn}>
+            Already have an account? Log in
+          </Link>
         </div>
       </div>
     </>

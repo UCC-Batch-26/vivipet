@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import formStyles from './sign-up-form.module.css';
 import sharedStyles from './sign-up.module.css';
 import { IMAGES } from '@/assets/images';
@@ -29,6 +30,11 @@ export function LoginForm({ username, setUsername, selectedPet, petBanners, hand
 
             <button type="submit">Log In</button>
           </form>
+
+          {/* ✅ Styled like the SignUp switchBtn */}
+          <Link to="/signup" className={sharedStyles.switchBtn}>
+            Don’t have an account? Sign up
+          </Link>
         </div>
       </div>
     </>
