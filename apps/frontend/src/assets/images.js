@@ -61,8 +61,10 @@ import dirtyDog from './sprites/dirty-dog-sprite.gif';
 import defaultCatMood from './sprites/default-cat-mood.gif';
 import catShower from './sprites/shower-cat-mood.gif';
 import dogShower from './sprites/dog-shower-mood.gif';
+import dogPlaying from './sprites/dog-playing-mood.gif';
 
 export const IMAGES = {
+  dogPlaying,
   dogShower,
   catShower,
   defaultCatMood,
