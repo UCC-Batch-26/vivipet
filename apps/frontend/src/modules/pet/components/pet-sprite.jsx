@@ -20,8 +20,8 @@ export function PetSprite({ type = 'dog', activity = 'idle', mood = 'calm', spee
       walking: [IMAGES.defaultCatMood],
       hungry: [IMAGES.hungryCat],
       dirty: [IMAGES.dirtyCat],
-      sad: [IMAGES.catSad1, IMAGES.catSad2],
-      playing: [IMAGES.catPlay1, IMAGES.catPlay2],
+      // sad: [IMAGES.catSad1, IMAGES.catSad2],
+      // playing: [IMAGES.catPlay1, IMAGES.catPlay2],
       feedAction: [IMAGES.eatingCat],
       showerAction: [IMAGES.catShower],
       playAction: [IMAGES.catPlayAction1, IMAGES.catPlayAction2],
@@ -56,7 +56,7 @@ export function PetSprite({ type = 'dog', activity = 'idle', mood = 'calm', spee
 
   const frames = petFrames[type]?.[key] || petFrames[type]?.walking;
 
-  console.log({ activity, mood, key, frames });
+  // console.log({ activity, mood, key, frames });
 
   useEffect(() => {
     if (!frames || frames.length === 1) return;
