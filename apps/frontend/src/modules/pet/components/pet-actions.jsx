@@ -4,7 +4,7 @@ import { IMAGES } from '@/assets/images';
 export function PetActions({ onHandleAction }) {
   return (
     <div className={styles.petContainer}>
-      <img src={IMAGES.healthBar} alt="health bar" className={styles.healthBar} />
+      {/* <img src={IMAGES.healthBar} alt="health bar" className={styles.healthBar} /> */}
       <div className={styles.petBtnContainer}>
         <button className={styles.petBtn} onClick={() => onHandleAction('feed')} title="Feed your pet">
           <img src={IMAGES.food} alt="Feed" className={styles.petBtnImg} />
