@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { IMAGES } from '@/assets/images';
 import styles from './pet-sprite.module.css';
 
-export function PetSprite({ petType = 'dog', mood = 'walking', speed = 900 }) {
+export function PetSprite({ type = 'dog', activity = 'idle', mood = 'calm', speed = 900 }) {
   const [frame, setFrame] = useState(0);
 
   const petFrames = {
@@ -38,7 +38,25 @@ export function PetSprite({ petType = 'dog', mood = 'walking', speed = 900 }) {
     },
   };
 
-  const frames = petFrames[petType]?.[mood] || petFrames[petType]?.walking;
+  const moodMap = {
+    calm: 'walking',
+    happy: 'walking',
+    hungry: 'hungry',
+    dirty: 'dirty',
+    sad: 'sad',
+  };
+
+  const actionMap = {
+    feed: 'feedAction',
+    play: 'playAction',
+    shower: 'showerAction',
+  };
+
+  const key = activity === 'idle' ? moodMap[mood] || 'walking' : actionMap[activity] || 'walking';
+
+  const frames = petFrames[type]?.[key] || petFrames[type]?.walking;
+
+  console.log({ activity, mood, key, frames });
 
   useEffect(() => {
     if (!frames || frames.length === 1) return;
@@ -52,7 +70,9 @@ export function PetSprite({ petType = 'dog', mood = 'walking', speed = 900 }) {
 
   return (
     <div className={styles.petSprite}>
-      {frames && <img src={frames[frame]} alt={`${petType}`} className={styles.spriteImage} />}
+      {frames && <img src={frames[frame]} alt={`${type}`} className={styles.spriteImage} />}
+      {/* <p>Mood: {mood}</p>
+       <p>Activity: {activity}</p> */}
     </div>
   );
 }
