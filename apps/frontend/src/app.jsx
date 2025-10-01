@@ -22,7 +22,10 @@ export default function App() {
             Home
           </NavLink>
 
-          <NavLink to="/pet/:userId/activity" className={({ isActive }) => `${styles.navLink} ${isActive ? styles.activeLink : ''}`}>
+          <NavLink
+            to="/pet/:userId/activity"
+            className={({ isActive }) => `${styles.navLink} ${isActive ? styles.activeLink : ''}`}
+          >
             My Pet
           </NavLink>
 
