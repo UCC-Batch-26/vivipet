@@ -41,24 +41,22 @@ export function PetSprite({ type = 'dog', activity = 'idle', mood = 'calm', spee
   const moodMap = {
     calm: 'walking',
     happy: 'walking',
-    sad: 'sad',
     hungry: 'hungry',
     dirty: 'dirty',
+    sad: 'sad',
   };
 
   const actionMap = {
-    eating: 'feedAction',
-    playing: 'playAction',
-    showering: 'showerAction',
-    idle: 'walking',
+    feed: 'feedAction',
+    play: 'playAction',
+    shower: 'showerAction',
   };
 
- 
- 
- 
-   const key = activity !== 'idle' ? actionMap[activity] : moodMap[mood] || 'walking';
+  const key = activity === 'idle' ? moodMap[mood] || 'walking' : actionMap[activity] || 'walking';
 
   const frames = petFrames[type]?.[key] || petFrames[type]?.walking;
+
+  console.log({ activity, mood, key, frames });
 
   useEffect(() => {
     if (!frames || frames.length === 1) return;
