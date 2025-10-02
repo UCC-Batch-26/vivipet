@@ -19,15 +19,20 @@ app.set('port', PORT);
 app.use(
   cors({
     origin: (origin, callback) => {
-      // eslint-disable-next-line
-      // @todo: Add your whitelisted URL here
       const whitelist = ['http://localhost:5173', 'https://yourproductionurl.com'];
-      if (whitelist.indexOf(origin) === -1) {
-        callback(new Error(`Not allowed by CORS: ${origin}`));
-      } else {
+      // eslint-disable-next-line
+      // // @todo: Add your whitelisted URL here
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      if (whitelist.indexOf(origin) !== -1) {
         callback(null, true);
+      } else {
+        callback(new Error(`Not allowed by CORS: ${origin}`));
       }
     },
+    credentials: true,
   }),
 );
 app.use(bodyParser.json());
@@ -47,6 +52,7 @@ app.get('/ping', (req, res) => {
 //app.use('/sample', sampleRoutes);
 app.use('/auth', authRoutes);
 app.use('/pet', petRoutes);
+
 // Error handling middleware, MUST always be the last
 app.use(errorHandler);
 
