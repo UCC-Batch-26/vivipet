@@ -47,10 +47,10 @@ export default function App() {
           >
             My Pet
           </NavLink>
-
+          {/* 
           <NavLink to="/about" className={({ isActive }) => `${styles.navLink} ${isActive ? styles.activeLink : ''}`}>
             About
-          </NavLink>
+          </NavLink> */}
 
           {loggedInUser && (
             <NavLink
@@ -70,7 +70,7 @@ export default function App() {
 
           <Route path="/pet/:userId/activity" element={loggedInUser ? <Pet /> : <Navigate to="/login" replace />} />
 
-          <Route path="/about" element={<About />} />
+          {/* <Route path="/about" element={<About />} /> */}
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<LoginPage petBanners={IMAGES.petBanners} onLogin={handleLogin} />} />
         </Routes>
