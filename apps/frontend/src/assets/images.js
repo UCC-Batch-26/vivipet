@@ -25,8 +25,10 @@ import dirtyCat from './sprites/dirty-cat-mood.gif';
 import hungryCat from './sprites/hungry-cat-mood.gif';
 import eatingCat from './sprites/eating-cat-mood.gif';
 import catPlaying from './sprites/playing-cat.gif';
+import defaultBunnyMood from './sprites/default-bunny-mood.gif';
 
 export const IMAGES = {
+  defaultBunnyMood,
   catPlaying,
   eatingCat,
   hungryCat,
