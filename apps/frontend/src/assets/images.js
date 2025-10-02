@@ -30,8 +30,10 @@ import dirtyBunny from './sprites/dirty-bunny-mood.gif';
 import hungryBunny from './sprites/hungry-bunny-mood.gif';
 import eatingBunny from './sprites/eating-bunny-mood.gif';
 import bunnyShower from './sprites/shower-bunny-mood.gif';
+import bunnyPlaying from './sprites/playing-bunny-mood.gif';
 
 export const IMAGES = {
+  bunnyPlaying,
   bunnyShower,
   eatingBunny,
   hungryBunny,
