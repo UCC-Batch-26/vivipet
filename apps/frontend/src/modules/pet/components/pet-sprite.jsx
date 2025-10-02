@@ -24,17 +24,17 @@ export function PetSprite({ type = 'dog', activity = 'idle', mood = 'calm', spee
       // playing: [IMAGES.catPlay1, IMAGES.catPlay2],
       feedAction: [IMAGES.eatingCat],
       showerAction: [IMAGES.catShower],
-      playAction: [IMAGES.catPlayAction1, IMAGES.catPlayAction2],
+      playAction: [IMAGES.catPlaying],
     },
     bunny: {
       walking: [IMAGES.defaultBunnyMood],
       hungry: [IMAGES.hungryBunny],
       dirty: [IMAGES.dirtyBunny],
-      sad: [IMAGES.bunnySad1, IMAGES.bunnySad2],
-      playing: [IMAGES.bunnyPlay1, IMAGES.bunnyPlay2],
+      // sad: [IMAGES.bunnySad1, IMAGES.bunnySad2],
+      // playing: [IMAGES.bunnyPlay1, IMAGES.bunnyPlay2],
       feedAction: [IMAGES.eatingBunny],
-      showerAction: [IMAGES.bunnyShower1, IMAGES.bunnyShower2],
-      playAction: [IMAGES.bunnyPlayAction1, IMAGES.bunnyPlayAction2],
+      showerAction: [IMAGES.bunnyShower],
+      playAction: [IMAGES.bunnyPlaying],
     },
   };
 
