@@ -22,9 +22,9 @@ import catShower from './sprites/shower-cat-mood.gif';
 import dogShower from './sprites/dog-shower-mood.gif';
 import dogPlaying from './sprites/dog-playing-mood.gif';
 import dirtyCat from './sprites/dirty-cat-mood.gif';
-import hungryCat from './sprites/dirty-cat-mood.gif';
+import hungryCat from './sprites/hungry-cat-mood.gif';
 import eatingCat from './sprites/eating-cat-mood.gif';
-import catPlaying from './sprites/playing-cat-mood.gif';
+import catPlaying from './sprites/playing-cat.gif';
 
 export const IMAGES = {
   catPlaying,
