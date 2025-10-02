@@ -23,8 +23,10 @@ import dogShower from './sprites/dog-shower-mood.gif';
 import dogPlaying from './sprites/dog-playing-mood.gif';
 import dirtyCat from './sprites/dirty-cat-mood.gif';
 import hungryCat from './sprites/dirty-cat-mood.gif';
+import eatingCat from './sprites/eating-cat-mood.gif';
 
 export const IMAGES = {
+  eatingCat,
   hungryCat,
   dirtyCat,
   dogPlaying,
