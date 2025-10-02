@@ -7,6 +7,7 @@ export function PetSprite({ type = 'dog', activity = 'idle', mood = 'calm' }) {
       walking: [IMAGES.dogWalkingGif],
       hungry: [IMAGES.hungryDog],
       dirty: [IMAGES.dirtyDog],
+      sad: [IMAGES.sadDog],
       feedAction: [IMAGES.eatingDog],
       showerAction: [IMAGES.dogShower],
       playAction: [IMAGES.dogPlaying],
@@ -15,6 +16,7 @@ export function PetSprite({ type = 'dog', activity = 'idle', mood = 'calm' }) {
       walking: [IMAGES.defaultCatMood],
       hungry: [IMAGES.hungryCat],
       dirty: [IMAGES.dirtyCat],
+      sad: [IMAGES.sadCat],
       feedAction: [IMAGES.eatingCat],
       showerAction: [IMAGES.catShower],
       playAction: [IMAGES.catPlaying],
@@ -23,6 +25,7 @@ export function PetSprite({ type = 'dog', activity = 'idle', mood = 'calm' }) {
       walking: [IMAGES.defaultBunnyMood],
       hungry: [IMAGES.hungryBunny],
       dirty: [IMAGES.dirtyBunny],
+      sad: [IMAGES.sadBunny],
       feedAction: [IMAGES.eatingBunny],
       showerAction: [IMAGES.bunnyShower],
       playAction: [IMAGES.bunnyPlaying],
@@ -34,7 +37,7 @@ export function PetSprite({ type = 'dog', activity = 'idle', mood = 'calm' }) {
     happy: 'walking',
     hungry: 'hungry',
     dirty: 'dirty',
-    sad: 'walking',
+    sad: 'sad',
   };
 
   const actionMap = {
