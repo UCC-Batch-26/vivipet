@@ -1,14 +1,22 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { usePing } from '@/modules/home/hooks/use-ping';
 import styles from './home.module.css';
 import { IMAGES } from '@/assets/images';
 import characterVideo from '@/assets/videos/character3.webm';
-// import planetVideo from "@/assets/videos/planet.webm";
-import { useNavigate } from 'react-router-dom';
 
 export function Home() {
   const navigate = useNavigate();
+  const { ping, status } = usePing();
+
+  useEffect(() => {
+    ping();
+  }, [ping]);
 
   return (
     <div className={styles.homeContainer}>
+      {status === 'FAILED' && <div className={styles.connectionError}>Unable to connect to server</div>}
+
       <section className={styles.hero}>
         <div className={styles.heroCopy}>
           <p className={styles.homeEyebrow}>Move in real life,</p>
@@ -20,17 +28,7 @@ export function Home() {
         </div>
 
         <div className={styles.heroImage}>
-          {/* <video
-            src={planetVideo}
-            className={styles.planet}
-            autoPlay
-            loop
-            muted
-            playsInline
-          /> */}
-
           <video src={characterVideo} className={styles.rightImg} autoPlay loop muted playsInline />
-
           <img src={IMAGES.cloud} alt="Cloud" className={styles.cloud} />
         </div>
       </section>
@@ -41,41 +39,10 @@ export function Home() {
       <div className={styles.btnContainer}>
         <button className={styles.btn3d} onClick={() => navigate('/signup')}>
           <img src={IMAGES.playBtn} alt="Play Icon" className={styles.btnIcon} />
-          Let’s Paw-ty
+          Let's Paw-ty
           <div className={styles.emptyBtn}></div>
         </button>
       </div>
-
-      {/* <div className={styles.btnContainer}>
-        <button className={styles.btn3d} onClick={() => navigate('/signup')}>
-          Let’s Paw-ty
-        </button>
-        <button className={styles.btn3d} onClick={() => navigate('/login')}>
-          Log In
-        </button>
-      </div> */}
     </div>
   );
 }
-
-// import { usePing } from '@/modules/home/hooks/use-ping';
-// import { useEffect } from 'react';
-// import { Link } from 'react-router';
-
-// export function HomePage() {
-//   const { ping, status } = usePing();
-
-//   useEffect(() => {
-//     ping();
-//   }, [ping]);
-
-//   return (
-//     <div className="grid gap-2 container mx-auto">
-//       <div className="text-4xl text-center">This is the Home Page</div>
-//       <div className="text-center">Backend Connection: {status}</div>
-//       <Link to="/sample" className="underline mt-10 text-center">
-//         Go to Sample Page
-//       </Link>
-//     </div>
-//   );
-// }
