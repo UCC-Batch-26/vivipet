@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, NavLink, Navigate, useNavigate } from 'react-router-dom';
 
 import { Home } from '@/modules/home/pages/home';
@@ -10,8 +10,27 @@ import styles from './index.module.css';
 import { IMAGES } from '@/assets/images';
 
 export default function App() {
-  const [loggedInUser, setLoggedInUser] = useState(null); // Tracks login status
+  const [loggedInUser, setLoggedInUser] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem('loggedInUser');
+    if (savedUser) {
+      setLoggedInUser(JSON.parse(savedUser));
+    }
+  }, []);
+
+  const handleLogin = (user) => {
+    setLoggedInUser(user);
+    localStorage.setItem('loggedInUser', JSON.stringify(user));
+    navigate(`/pet/${user._id}/activity`);
+  };
+
+  const handleLogout = () => {
+    setLoggedInUser(null);
+    localStorage.removeItem('loggedInUser');
+    navigate('/login');
+  };
 
   return (
     <div className={styles.appContainer}>
@@ -23,7 +42,7 @@ export default function App() {
           </NavLink>
 
           <NavLink
-            to="/pet/:userId/activity"
+            to={loggedInUser ? `/pet/${loggedInUser._id}/activity` : '/login'}
             className={({ isActive }) => `${styles.navLink} ${isActive ? styles.activeLink : ''}`}
           >
             My Pet
@@ -32,32 +51,28 @@ export default function App() {
           <NavLink to="/about" className={({ isActive }) => `${styles.navLink} ${isActive ? styles.activeLink : ''}`}>
             About
           </NavLink>
+
+          {loggedInUser && (
+            <NavLink
+              to="/login"
+              onClick={handleLogout}
+              className={({ isActive }) => `${styles.navLink} ${isActive ? styles.activeLink : ''}`}
+            >
+              Logout
+            </NavLink>
+          )}
         </nav>
       </header>
 
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home loggedInUser={loggedInUser} />} />
 
-          {/* Protect Pet route: redirect to login if not logged in */}
           <Route path="/pet/:userId/activity" element={loggedInUser ? <Pet /> : <Navigate to="/login" replace />} />
 
           <Route path="/about" element={<About />} />
           <Route path="/signup" element={<SignUp />} />
-
-          {/* Login page passes onLogin callback */}
-          <Route
-            path="/login"
-            element={
-              <LoginPage
-                petBanners={IMAGES.petBanners}
-                onLogin={(user) => {
-                  setLoggedInUser(user);
-                  navigate(`/pet/${user._id}/activity`); // automatically go to Pet page after login
-                }}
-              />
-            }
-          />
+          <Route path="/login" element={<LoginPage petBanners={IMAGES.petBanners} onLogin={handleLogin} />} />
         </Routes>
       </main>
     </div>

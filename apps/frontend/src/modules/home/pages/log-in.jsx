@@ -15,7 +15,7 @@ export function LoginPage({ petBanners, onLogin }) {
 
     try {
       const user = await login(username);
-      onLogin(user);
+      onLogin(user); // App.jsx will now store in state + localStorage
     } catch (error) {
       alert(error.message);
       console.error(error);

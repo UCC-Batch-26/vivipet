@@ -36,7 +36,7 @@ export function Pet() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (userId) loadPet();
-    }, 2000);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [userId]);
