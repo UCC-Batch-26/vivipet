@@ -22,7 +22,7 @@ export function SignUpForm({
 
       <div className={formStyles.headerContainer}>
         <img
-          src={selectedPet ? petBanners[selectedPet] : IMAGES.catSignUp}
+          src={selectedPet ? petBanners[selectedPet] : IMAGES.dogSignUp}
           alt="Sign up banner"
           className={formStyles.catSignUp}
         />
