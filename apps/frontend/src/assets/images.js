@@ -34,8 +34,10 @@ import bunnyPlaying from './sprites/playing-bunny-mood.gif';
 import sadDog from './sprites/sad-dog-mood.gif';
 import hungryBunny from './sprites/hungry2-bunny-mood.gif';
 import sadCat from './sprites/sad-cat-mood.gif';
+import placeholder from './name-placeholder.png';
 
 export const IMAGES = {
+  placeholder,
   sadCat,
   hungryBunny,
   sadDog,

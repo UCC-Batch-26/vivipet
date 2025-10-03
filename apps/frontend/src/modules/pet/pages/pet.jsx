@@ -1,9 +1,9 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { PetSprite } from '@/modules/pet/components/pet-sprite';
 import { PetActions } from '@/modules/pet/components/pet-actions';
-import styles from '@/modules/pet/pages/pet.module.css';
 import { IMAGES } from '@/assets/images';
+import styles from '@/modules/pet/pages/pet.module.css';
 import { fetchPet, petAction } from '../services/pet-service';
 
 export function Pet() {
@@ -14,7 +14,7 @@ export function Pet() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const loadPet = useCallback(async () => {
+  const loadPet = async () => {
     try {
       const data = await fetchPet(userId);
       if (!data) {
@@ -27,42 +27,55 @@ export function Pet() {
     } catch (err) {
       console.error('Failed to fetch pet:', err);
       setError('Failed to fetch pet');
-    } finally {
-      setLoading(false);
     }
-  }, [userId]);
+    setLoading(false);
+  };
 
   useEffect(() => {
-    if (userId) loadPet();
+    const interval = setInterval(() => {
+      if (userId) loadPet();
+    }, 1000);
 
-    const interval = setInterval(loadPet, 3000);
     return () => clearInterval(interval);
-  }, [userId, loadPet]);
+  }, [userId]);
 
   const handleAction = async (activity) => {
     try {
       await petAction(activity, userId, setPet, setAction, setMood);
       await loadPet();
-    } catch (err) {
-      console.error('Action failed:', err);
-      setError(err.message || 'Action failed');
+    } catch (error) {
+      alert(error.message);
+      console.error('error', error);
     }
   };
 
   if (loading) return <p>Loading pet...</p>;
-  if (error) return <p className={styles.error}>{error}</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <div className={styles.petContainer}>
       <div className={styles.petBgWrapper}>
         <img src={IMAGES.petBg} alt="wooden background" className={styles.petBg} />
+
         <div className={styles.petCopy}>
           <PetSprite type={pet.type} activity={action} mood={mood} />
         </div>
-      </div>
 
-      <div className={styles.petActionsWrapper}>
-        <PetActions onHandleAction={handleAction} />
+        <div className={styles.placeholderContainer}>
+          <div className={styles.placeholderWrapper}>
+            <img src={IMAGES.placeholder} alt="wooden sign" className={styles.placeholder} />
+            <span className={styles.placeholderText}>{pet?.owner?.username || 'Player'}</span>
+          </div>
+
+          <div className={styles.placeholderWrapper}>
+            <img src={IMAGES.placeholder} alt="wooden sign" className={styles.placeholder} />
+            <span className={styles.placeholderText}>{pet?.name || 'Pet Name'}</span>
+          </div>
+        </div>
+
+        <div className={styles.petActionsWrapper}>
+          <PetActions onHandleAction={handleAction} />
+        </div>
       </div>
     </div>
   );

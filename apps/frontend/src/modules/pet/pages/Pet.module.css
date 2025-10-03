@@ -2,8 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: .5rem;
   width: 100%;
+  height: 445px;
+  margin-top: -.5rem;
 }
 
 .petBgWrapper {
@@ -21,16 +23,63 @@
 }
 
 .petCopy {
-  position: absolute; /* sits on top of bg */
-  top: 50%;
+  position: absolute;
+  top: 33%;
   left: 50%;
-  transform: translate(-50%, -50%); /* center horizontally + vertically */
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
+.placeholderContainer {
+  display: flex;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+  gap: 1rem;
+  width: 300px;
+}
+
+.placeholderWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.placeholder {
+  width: 100%;
+  display: block;
+}
+
+.placeholderText {
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--accent-color);
+  font-size: .9rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: -.1rem;
+  font-family: 'Pixelify Sans', sans-serif;
+  width: 9rem;
+  overflow: hidden;
+}
+
 .petActionsWrapper {
-  margin-top: 1rem;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; */
+  /* gap: 1rem;
+  width: 100%;
+  max-width: 428px;
+  border: 1px solid rgb(0, 0, 0); */
 }
