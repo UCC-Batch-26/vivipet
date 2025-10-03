@@ -31,8 +31,10 @@ import hungryBunny from './sprites/hungry-bunny-mood.gif';
 import eatingBunny from './sprites/eating-bunny-mood.gif';
 import bunnyShower from './sprites/shower-bunny-mood.gif';
 import bunnyPlaying from './sprites/playing-bunny-mood.gif';
+import sadDog from './sprites/sad-dog-mood.gif';
 
 export const IMAGES = {
+  sadDog,
   bunnyPlaying,
   bunnyShower,
   eatingBunny,
