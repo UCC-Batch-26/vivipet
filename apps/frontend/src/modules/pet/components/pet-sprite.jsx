@@ -4,7 +4,7 @@ import styles from './pet-sprite.module.css';
 export function PetSprite({ type = 'dog', activity = 'idle', mood = 'calm' }) {
   const petFrames = {
     dog: {
-      walking: [IMAGES.dogWalkingGif],
+      happy: [IMAGES.dogWalkingGif],
       hungry: [IMAGES.hungryDog],
       dirty: [IMAGES.dirtyDog],
       sad: [IMAGES.sadDog],
@@ -13,7 +13,7 @@ export function PetSprite({ type = 'dog', activity = 'idle', mood = 'calm' }) {
       playAction: [IMAGES.dogPlaying],
     },
     cat: {
-      walking: [IMAGES.defaultCatMood],
+      happy: [IMAGES.defaultCatMood],
       hungry: [IMAGES.hungryCat],
       dirty: [IMAGES.dirtyCat],
       sad: [IMAGES.sadCat],
@@ -22,7 +22,7 @@ export function PetSprite({ type = 'dog', activity = 'idle', mood = 'calm' }) {
       playAction: [IMAGES.catPlaying],
     },
     bunny: {
-      walking: [IMAGES.defaultBunnyMood],
+      happy: [IMAGES.defaultBunnyMood],
       hungry: [IMAGES.hungryBunny],
       dirty: [IMAGES.dirtyBunny],
       sad: [IMAGES.sadBunny],
@@ -33,8 +33,7 @@ export function PetSprite({ type = 'dog', activity = 'idle', mood = 'calm' }) {
   };
 
   const moodMap = {
-    calm: 'walking',
-    happy: 'walking',
+    happy: 'happy',
     hungry: 'hungry',
     dirty: 'dirty',
     sad: 'sad',
@@ -46,7 +45,7 @@ export function PetSprite({ type = 'dog', activity = 'idle', mood = 'calm' }) {
     shower: 'showerAction',
   };
 
-  const key = activity === 'idle' ? moodMap[mood] || 'walking' : actionMap[activity] || 'walking';
+  const key = mood !== 'happy' ? moodMap[mood] || 'happy' : actionMap[activity] || 'happy';
 
   const frames = petFrames[type]?.[key] || petFrames[type]?.walking;
 

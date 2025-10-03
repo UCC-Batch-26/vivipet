@@ -71,7 +71,7 @@ export default function App() {
           <Route path="/pet/:userId/activity" element={loggedInUser ? <Pet /> : <Navigate to="/login" replace />} />
 
           {/* <Route path="/about" element={<About />} /> */}
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp onLogin={handleLogin} />} />
           <Route path="/login" element={<LoginPage petBanners={IMAGES.petBanners} onLogin={handleLogin} />} />
         </Routes>
       </main>

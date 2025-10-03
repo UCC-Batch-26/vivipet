@@ -46,7 +46,7 @@ export function Pet() {
       await petAction(activity, userId, setPet, setAction, setMood);
       await loadPet();
     } catch (error) {
-      alert('Pet action failed' + error.message);
+      alert(error.message);
       console.error('error', error);
     }
   };

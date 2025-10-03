@@ -7,7 +7,6 @@ export const PET_TYPE = {
 };
 
 export const PET_MOOD = {
-  CALM: 'calm',
   HAPPY: 'happy',
   SAD: 'sad',
   HUNGRY: 'hungry',
@@ -35,17 +34,29 @@ const petSchema = new Schema(
     mood: {
       type: String,
       enum: Object.values(PET_MOOD),
-      default: 'calm',
+      default: PET_MOOD.HAPPY,
     },
     activity: {
       type: String,
       enum: Object.values(PET_ACTIVITY),
-      default: 'idle',
+      default: PET_ACTIVITY.IDLE,
     },
     owner: {
       type: Schema.Types.ObjectId,
       ref: 'User',
       required: true,
+    },
+    hungry: {
+      type: Number,
+      default: 0,
+    },
+    dirty: {
+      type: Number,
+      default: 0,
+    },
+    idleSince: {
+      type: Date,
+      default: null,
     },
   },
   {
