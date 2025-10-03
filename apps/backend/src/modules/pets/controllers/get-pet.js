@@ -1,6 +1,5 @@
-import { Pet, PET_ACTIVITY } from '../models/pet.js';
+import { Pet } from '../models/pet.js';
 import { log } from '#utils/log.js';
-import { idleMood } from '#utils/idleMood.js';
 
 export async function getPet(req, res) {
   const { userId } = req.params;
@@ -10,10 +9,6 @@ export async function getPet(req, res) {
 
     if (!pet) {
       return res.status(404).json({ message: 'Pet not found' });
-    }
-
-    if (pet.activity === PET_ACTIVITY.IDLE) {
-      pet.mood = idleMood(pet);
     }
 
     res.status(200).json({

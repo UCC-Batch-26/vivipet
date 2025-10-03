@@ -15,5 +15,5 @@ Content-Type: application/json
 Origin: http://localhost:5173
 
 {
-  "activity": "feed"
+  "activity": "play"
 }

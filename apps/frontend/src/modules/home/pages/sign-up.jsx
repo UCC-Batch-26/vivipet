@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // ✅ import Link
+//import { Link, useNavigate } from 'react-router-dom'; // ✅ import Link
 import containerStyles from './sign-up.module.css';
 import { IMAGES } from '@/assets/images';
 import bunnyVideo from '@/assets/videos/bunnyGif.gif';
@@ -9,13 +9,12 @@ import { SignUpForm } from './sign-up-form';
 import { WelcomeScreen } from './welcome-screen';
 import { signUp } from '../services/user-service';
 
-export function SignUp() {
+export function SignUp({ onLogin }) {
   const [username, setUsername] = useState('');
   const [petname, setPetname] = useState('');
   const [selectedPet, setSelectedPet] = useState(null);
   const [isSignedUp, setIsSignedUp] = useState(false);
   const [userId, setUserId] = useState(null);
-  const navigate = useNavigate();
 
   const petBanners = {
     dog: IMAGES.dogSignUp,
@@ -48,7 +47,8 @@ export function SignUp() {
 
   const handleStart = () => {
     if (userId) {
-      navigate(`/pet/${userId}/activity`);
+      const user = { _id: userId, username, petname, selectedPet };
+      onLogin(user);
     }
   };
 
