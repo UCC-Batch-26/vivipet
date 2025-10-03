@@ -31,7 +31,6 @@ export function LoginForm({ username, setUsername, selectedPet, petBanners, hand
             <button type="submit">Log In</button>
           </form>
 
-          {/* ✅ Styled like the SignUp switchBtn */}
           <Link to="/signup" className={sharedStyles.switchBtn}>
             Don’t have an account? Sign up
           </Link>

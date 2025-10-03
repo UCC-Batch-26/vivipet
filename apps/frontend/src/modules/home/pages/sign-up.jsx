@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-//import { Link, useNavigate } from 'react-router-dom'; // ✅ import Link
 import containerStyles from './sign-up.module.css';
 import { IMAGES } from '@/assets/images';
 import bunnyVideo from '@/assets/videos/bunnyGif.gif';
@@ -67,7 +66,6 @@ export function SignUp({ onLogin }) {
             handleSubmit={handleSubmit}
           />
 
-          {/* ✅ Use Link to navigate to /login */}
           {/* <Link to="/login" className={containerStyles.switchBtn}>
             Already have an account? Log in
           </Link> */}
