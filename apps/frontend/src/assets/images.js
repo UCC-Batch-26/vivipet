@@ -27,18 +27,22 @@ import eatingCat from './sprites/eating-cat-mood.gif';
 import catPlaying from './sprites/playing-cat.gif';
 import defaultBunnyMood from './sprites/default-bunny-mood.gif';
 import dirtyBunny from './sprites/dirty-bunny-mood.gif';
-import hungryBunny from './sprites/hungry-bunny-mood.gif';
+import sadBunny from './sprites/hungry-bunny-mood.gif';
 import eatingBunny from './sprites/eating-bunny-mood.gif';
 import bunnyShower from './sprites/shower-bunny-mood.gif';
 import bunnyPlaying from './sprites/playing-bunny-mood.gif';
 import sadDog from './sprites/sad-dog-mood.gif';
+import hungryBunny from './sprites/hungry2-bunny-mood.gif';
+import sadCat from './sprites/sad-cat-mood.gif';
 
 export const IMAGES = {
+  sadCat,
+  hungryBunny,
   sadDog,
   bunnyPlaying,
   bunnyShower,
   eatingBunny,
-  hungryBunny,
+  sadBunny,
   dirtyBunny,
   defaultBunnyMood,
   catPlaying,
