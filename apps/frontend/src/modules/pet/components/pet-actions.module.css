@@ -10,12 +10,17 @@
 }
 
 .petBtnContainer {
+  position: absolute;
+    top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 2rem; 
-  justify-content: space-around;
+  justify-content: center;
   align-content: center;
   /* border: 1px solid bisque; */
-  width: 428px;
+  width: 350px;
+  margin-top: -.9rem;
 }
 
 .petBtn {
