@@ -60,7 +60,6 @@ export function SignUpForm({
             <button type="submit">Sign Up</button>
           </form>
 
-          {/* ✅ Add this link back to Login */}
           <Link to="/login" className={sharedStyles.switchBtn}>
             Already have an account? Log in
           </Link>
