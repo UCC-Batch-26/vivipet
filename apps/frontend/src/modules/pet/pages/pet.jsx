@@ -68,6 +68,14 @@ export function Pet() {
     }
   };
 
+  const getMoodBanner = () => {
+    if (!pet) return '';
+    if (pet.hungry >= 80) return 'Hungry';
+    if (pet.dirty >= 80) return 'Dirty';
+    if (pet.mood === 'sad') return 'Sad';
+    if (pet.mood === 'happy' && pet.hungry < 80 && pet.dirty < 80) return 'Happy';
+    return '';
+  };
   // const getMoodBanner = () => {
   //   if (!pet) return '';
   //   if (pet.hungry >= 80 && pet.dirty >= 80) return '😢 Sad';
