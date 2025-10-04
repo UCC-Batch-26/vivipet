@@ -5,6 +5,7 @@ import { PetActions } from '@/modules/pet/components/pet-actions';
 import { IMAGES } from '@/assets/images';
 import styles from '@/modules/pet/pages/pet.module.css';
 import { fetchPet, petAction } from '../services/pet-service';
+import { LoadingSprite } from '@/modules/pet/components/loading-sprite';
 
 export function Pet() {
   const { userId } = useParams();
@@ -49,7 +50,7 @@ export function Pet() {
     }
   };
 
-  if (loading) return <p>Loading pet...</p>;
+  if (loading) return <LoadingSprite />;
   if (error) return <p>{error}</p>;
 
   return (

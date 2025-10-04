@@ -1,0 +1,44 @@
+.loadingContainer {
+  /* border: 1px solid black; */
+  width: 428px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.loadingWrapper {
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 80px;
+  /* border: 1px solid black; */
+}
+
+.loadingSprite {
+  width: 300px;   
+  height: 38px; 
+  background-image: url('@/assets/loading-sprite.png');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 1800px 38px;
+  animation: play 1s steps(6) infinite;
+  /* border: 1px solid black; */
+
+}
+
+.loadingText {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  /* text-shadow: 1px 1px 2px #fff; */
+}
+
+@keyframes play {
+  from { background-position: 0px 0; }
+  to   { background-position: -1800px 0; }
+}
