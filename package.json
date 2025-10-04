@@ -1,5 +1,5 @@
 {
-  "name": "monorepo-template",
+  "name": "vivipet",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -11,7 +11,7 @@
     "fix": "pnpm lint && pnpm format",
     "check-types": "turbo run check-types",
     "test": "turbo run test",
-    "environment": "turbo run environment"
+    "environment": "turbo run env"
   },
   "devDependencies": {
     "prettier": "^3.6.2",
