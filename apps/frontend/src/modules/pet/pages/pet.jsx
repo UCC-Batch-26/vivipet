@@ -5,58 +5,56 @@ import { PetActions } from '@/modules/pet/components/pet-actions';
 import { IMAGES } from '@/assets/images';
 import styles from '@/modules/pet/pages/pet.module.css';
 import { fetchPet, petAction } from '../services/pet-service';
-import { LoadingSprite } from '@/modules/pet/components/loading-sprite';
 
 export function Pet() {
   const { userId } = useParams();
   const [pet, setPet] = useState(null);
   const [action, setAction] = useState('idle');
   const [mood, setMood] = useState('calm');
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   const loadPet = async () => {
     try {
       const data = await fetchPet(userId);
-      if (!data) {
-        setError('No pet found');
-      } else {
+      if (data) {
         setPet(data);
         setAction(data.activity);
         setMood(data.mood);
       }
     } catch (err) {
       console.error('Failed to fetch pet:', err);
-      setError('Failed to fetch pet');
     }
-    setLoading(false);
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (userId) loadPet();
-    }, 1000);
-
-    return () => clearInterval(interval);
+    if (userId) loadPet();
   }, [userId]);
 
   const handleAction = async (activity) => {
     try {
       await petAction(activity, userId, setPet, setAction, setMood);
       await loadPet();
-    } catch (error) {
-      alert(error.message);
-      console.error('error', error);
+    } catch (err) {
+      console.error('Action error:', err);
     }
   };
 
-  if (loading) return <LoadingSprite />;
-  if (error) return <p>{error}</p>;
+  const getMoodBanner = () => {
+    if (!pet) return '';
+    if (pet.hungry >= 80) return '😋 Hungry';
+    if (pet.dirty >= 80) return '🛁 Dirty';
+    if (pet.mood === 'sad') return '😢 Sad';
+    if (pet.mood === 'happy' && pet.hungry < 80 && pet.dirty < 80) return '😊 Happy';
+    return '';
+  };
+
+  if (!pet) return null;
 
   return (
     <div className={styles.petContainer}>
       <div className={styles.petBgWrapper}>
         <img src={IMAGES.petBg} alt="wooden background" className={styles.petBg} />
+
+        <div className={styles.petMoodBanner}>{getMoodBanner()}</div>
 
         <div className={styles.petCopy}>
           <PetSprite type={pet.type} activity={action} mood={mood} />
