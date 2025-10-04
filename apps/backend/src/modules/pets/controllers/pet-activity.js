@@ -56,14 +56,14 @@ export async function petActivity(req, res) {
     pet.activity = activity;
     pet.idleSince = new Date();
 
-    getMoodUpdate(pet);
-
     await pet.save();
 
     setTimeout(async () => {
       try {
         const updatedPet = await Pet.findById(pet._id);
         if (!updatedPet) return;
+
+        getMoodUpdate(updatedPet);
 
         const isHungry = updatedPet.hungry >= 80;
         const isDirty = updatedPet.dirty >= 80;
@@ -78,7 +78,7 @@ export async function petActivity(req, res) {
       } catch (err) {
         log('error', `${err.message}`);
       }
-    }, 10000);
+    }, 5000);
 
     res.status(200).json({ pet });
   } catch (error) {
