@@ -14,7 +14,6 @@
   --light: #e4ddda;
   --accent-color: #800000;
   /* --accent-color: #f1d235; */
-
 }
 
 * {
@@ -22,7 +21,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 
 .navbar {
   position: fixed;
@@ -49,7 +47,7 @@
 .navLink {
   margin: 0 10px;
   font-size: 0.7rem;
-  color:var(--primary-color);
+  color: var(--primary-color);
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -64,7 +62,7 @@
 }
 
 main {
-  margin-top: 4rem;    
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,15 +80,14 @@ body {
   background-color: #ce7536;
   /* background-color: #cf7834; */
   z-index: -10;
-    /* border: 1px solid white; */
-
+  /* border: 1px solid white; */
 }
 
-html, body {
+html,
+body {
   width: 100%;
-  max-width: 428px;   
-  margin: 0 auto;     
-  overflow-x: hidden; 
+  max-width: 428px;
+  margin: 0 auto;
+  overflow-x: hidden;
   min-height: 100vh;
 }
-
