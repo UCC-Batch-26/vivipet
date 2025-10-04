@@ -11,7 +11,7 @@ export function Pet() {
   const { userId } = useParams();
   const [pet, setPet] = useState(null);
   const [action, setAction] = useState('idle');
-  const [mood, setMood] = useState('calm');
+  const [mood, setMood] = useState('happy');
   const [initialLoading, setInitialLoading] = useState(true);
   const [moodBanner, setMoodBanner] = useState('');
 
