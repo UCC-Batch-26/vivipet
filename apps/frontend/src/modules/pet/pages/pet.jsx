@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { PetSprite } from '@/modules/pet/components/pet-sprite';
 import { PetActions } from '@/modules/pet/components/pet-actions';
 import { IMAGES } from '@/assets/images';
-import styles from '@/modules/pet/pages/pet.module.css';
+import styles from '@/modules/pet/pages/pet-style.module.css';
 import { fetchPet, petAction } from '../services/pet-service';
 
 export function Pet() {
