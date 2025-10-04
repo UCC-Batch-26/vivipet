@@ -14,6 +14,7 @@ export function Pet() {
   const [mood, setMood] = useState('happy');
   const [initialLoading, setInitialLoading] = useState(true);
   const [moodBanner, setMoodBanner] = useState('');
+  const [actionBtn, setActionBtn] = useState(false);
 
   const loadPet = async () => {
     try {
@@ -51,11 +52,19 @@ export function Pet() {
   }, [userId]);
 
   const handleAction = async (activity) => {
+    if (actionBtn) return;
+    setActionBtn(true);
     try {
       await petAction(activity, userId, setPet, setAction, setMood);
-      await loadPet();
+
+      setTimeout(async () => {
+        await loadPet();
+        setActionBtn(false);
+      }, 5000);
     } catch (err) {
+      setMoodBanner(err.message);
       console.error('Action error:', err);
+      setActionBtn(false);
     }
   };
 
@@ -113,7 +122,7 @@ export function Pet() {
           </div>
         </div>
         <div className={styles.petActionsWrapper}>
-          <PetActions onHandleAction={handleAction} />
+          <PetActions onHandleAction={handleAction} btnDisabled={actionBtn} />
         </div>
       </div>
     </div>
