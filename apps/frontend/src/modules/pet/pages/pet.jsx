@@ -83,7 +83,7 @@ export function Pet() {
         newMood = '😊 Happy';
       }
 
-      if(newMood !== moodBanner){
+      if (newMood !== moodBanner) {
         setMoodBanner(newMood);
       }
     }, 2000);
