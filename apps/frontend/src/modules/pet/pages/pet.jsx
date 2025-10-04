@@ -5,16 +5,21 @@ import { PetActions } from '@/modules/pet/components/pet-actions';
 import { IMAGES } from '@/assets/images';
 import styles from '@/modules/pet/pages/pet-style.module.css';
 import { fetchPet, petAction } from '../services/pet-service';
+import { LoadingSprite } from '@/modules/pet/components/loading-sprite'; // <- import your loading sprite
 
 export function Pet() {
   const { userId } = useParams();
   const [pet, setPet] = useState(null);
   const [action, setAction] = useState('idle');
   const [mood, setMood] = useState('calm');
+  const [loading, setLoading] = useState(true);
 
   const loadPet = async () => {
+    setLoading(true);
     try {
-      const data = await fetchPet(userId);
+      // Wait for both fetch and 6-second delay
+      const [data] = await Promise.all([fetchPet(userId), new Promise((resolve) => setTimeout(resolve, 6000))]);
+
       if (data) {
         setPet(data);
         setAction(data.activity);
@@ -22,6 +27,8 @@ export function Pet() {
       }
     } catch (err) {
       console.error('Failed to fetch pet:', err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -47,7 +54,9 @@ export function Pet() {
     return '';
   };
 
-  if (!pet) return null;
+  if (loading) return <LoadingSprite />; // <- show your loading sprite
+
+  if (!pet) return <p>Pet not found.</p>;
 
   return (
     <div className={styles.petContainer}>
