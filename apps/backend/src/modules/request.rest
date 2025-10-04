@@ -5,12 +5,12 @@ Content-Type: application/json
 Origin: http://localhost:5173
 
 ### Get single pet by userId
-GET http://localhost:3000/pet/68d40ebacee12500a157aa69
+GET http://localhost:3000/pet/68e132a009b0fd8e64175d35
 Origin: http://localhost:5173
 
 
 ### Update pet activity 
-POST http://localhost:3000/pet/68d40ebacee12500a157aa69/activity
+POST http://localhost:3000/pet/68e132a009b0fd8e64175d35/activity
 Content-Type: application/json
 Origin: http://localhost:5173
 
