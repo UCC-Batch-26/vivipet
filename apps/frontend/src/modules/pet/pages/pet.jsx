@@ -12,7 +12,7 @@ export function Pet() {
   const [pet, setPet] = useState(null);
   const [action, setAction] = useState('idle');
   const [mood, setMood] = useState('calm');
-  const [initialLoading, setInitialLoading] = useState(true); 
+  const [initialLoading, setInitialLoading] = useState(true);
 
   const loadPet = async () => {
     try {
@@ -31,7 +31,7 @@ export function Pet() {
     if (!userId) return;
     const fetchData = async () => {
       setInitialLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 3000)); 
+      await new Promise((resolve) => setTimeout(resolve, 3000));
       await loadPet();
       setInitialLoading(false);
     };
@@ -41,7 +41,7 @@ export function Pet() {
   const handleAction = async (activity) => {
     try {
       await petAction(activity, userId, setPet, setAction, setMood);
-      await loadPet(); 
+      await loadPet();
     } catch (err) {
       console.error('Action error:', err);
     }
