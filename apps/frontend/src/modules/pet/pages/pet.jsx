@@ -11,10 +11,16 @@ export function Pet() {
   const { userId } = useParams();
   const [pet, setPet] = useState(null);
   const [action, setAction] = useState('idle');
-  const [mood, setMood] = useState('happy');
-  const [initialLoading, setInitialLoading] = useState(true);
-  const [moodBanner, setMoodBanner] = useState('');
   const [actionBtn, setActionBtn] = useState(false);
+  const [initialLoading, setInitialLoading] = useState(true);
+
+  const moodDisplayMap = {
+    happy: 'Happy',
+    hungry: 'Hungry',
+    dirty: 'Dirty',
+    sad: 'Sad',
+    calm: 'Calm',
+  };
 
   const loadPet = async () => {
     try {
@@ -22,7 +28,6 @@ export function Pet() {
       if (data) {
         setPet(data);
         setAction(data.activity);
-        setMood(data.mood);
       }
     } catch (err) {
       console.error('Failed to fetch pet:', err);
@@ -45,7 +50,7 @@ export function Pet() {
 
     loadPet();
     const interval = setInterval(() => {
-      if (userId) loadPet();
+      loadPet();
     }, 8000);
 
     return () => clearInterval(interval);
@@ -55,58 +60,17 @@ export function Pet() {
     if (actionBtn) return;
     setActionBtn(true);
     try {
-      await petAction(activity, userId, setPet, setAction, setMood);
+      await petAction(activity, userId, setPet, setAction);
 
       setTimeout(async () => {
         await loadPet();
         setActionBtn(false);
       }, 5000);
     } catch (err) {
-      setMoodBanner(err.message);
       console.error('Action error:', err);
       setActionBtn(false);
     }
   };
-
-  const getMoodBanner = () => {
-    if (!pet) return '';
-    if (pet.hungry >= 80) return 'Hungry';
-    if (pet.dirty >= 80) return 'Dirty';
-    if (pet.mood === 'sad') return 'Sad';
-    if (pet.mood === 'happy' && pet.hungry < 80 && pet.dirty < 80) return 'Happy';
-    return '';
-  };
-  // const getMoodBanner = () => {
-  //   if (!pet) return '';
-  //   if (pet.hungry >= 80 && pet.dirty >= 80) return '😢 Sad';
-  //   if (pet.hungry >= 80) return '😋 Hungry';
-  //   if (pet.dirty >= 80) return '🛁 Dirty';
-  //   if (pet.mood === 'happy' && pet.hungry < 80 && pet.dirty < 80) return '😊 Happy';
-  //   return '';
-  // };
-
-  useEffect(() => {
-    if (!pet) return;
-
-    const timeout = setTimeout(() => {
-      let newMood = '';
-      if (pet.hungry >= 80 && pet.dirty >= 80) {
-        newMood = '😢 Sad';
-      } else if (pet.hungry >= 80) {
-        newMood = '😋 Hungry';
-      } else if (pet.dirty >= 80) {
-        newMood = '🛁 Dirty';
-      } else if (pet.mood === 'happy' && pet.hungry < 80 && pet.dirty < 80) {
-        newMood = '😊 Happy';
-      }
-
-      if (newMood !== moodBanner) {
-        setMoodBanner(newMood);
-      }
-    }, 2000);
-
-    return () => clearTimeout(timeout);
-  }, [pet]);
 
   if (initialLoading) return <LoadingSprite />;
   if (!pet) return <p>Pet not found.</p>;
@@ -115,9 +79,9 @@ export function Pet() {
     <div className={styles.petContainer}>
       <div className={styles.petBgWrapper}>
         <img src={IMAGES.petBg} alt="wooden background" className={styles.petBg} />
-        <div className={styles.petMoodBanner}>{moodBanner}</div>
+        <div className={styles.petMoodBanner}>{pet.mood ? moodDisplayMap[pet.mood] || pet.mood : ''}</div>
         <div className={styles.petCopy}>
-          <PetSprite type={pet.type} activity={action} mood={mood} />
+          <PetSprite type={pet.type} activity={action} mood={pet.mood} />
         </div>
         <div className={styles.placeholderContainer}>
           <div className={styles.placeholderWrapper}>
