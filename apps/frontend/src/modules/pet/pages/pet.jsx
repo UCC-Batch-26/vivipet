@@ -52,16 +52,15 @@ export function Pet() {
   }, [userId]);
 
   const handleAction = async (activity) => {
-    if(actionBtn) return;
+    if (actionBtn) return;
     setActionBtn(true);
     try {
       await petAction(activity, userId, setPet, setAction, setMood);
-      
-      setTimeout(async ()=>{
+
+      setTimeout(async () => {
         await loadPet();
         setActionBtn(false);
-      },5000);
-
+      }, 5000);
     } catch (err) {
       setMoodBanner(err.message);
       console.error('Action error:', err);
@@ -123,7 +122,7 @@ export function Pet() {
           </div>
         </div>
         <div className={styles.petActionsWrapper}>
-          <PetActions onHandleAction={handleAction} btnDisabled = {actionBtn} />
+          <PetActions onHandleAction={handleAction} btnDisabled={actionBtn} />
         </div>
       </div>
     </div>
