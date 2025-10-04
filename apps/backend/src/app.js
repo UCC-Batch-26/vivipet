@@ -33,7 +33,6 @@ app.use(
         callback(new Error(`Not allowed by CORS: ${origin}`));
       }
     },
-    credentials: true,
   }),
 );
 app.use(bodyParser.json());
