@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 
 app.set('port', PORT);
 
-app.get('/ping', (_, res) => {
+app.get('/ping', cors({ origin: '*' }), (_, res) => {
   res.status(200).json({
     message: 'PONG',
   });
