@@ -1,7 +1,7 @@
 import { IMAGES } from '@/assets/images';
 import styles from './pet-sprite.module.css';
 
-export function PetSprite({ type = 'dog', activity = 'idle', mood = 'calm' }) {
+export function PetSprite({ type = 'dog', activity = 'idle', mood = 'happy' }) {
   const petFrames = {
     dog: {
       happy: [IMAGES.dogWalkingGif],

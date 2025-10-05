@@ -13,13 +13,13 @@ export function Pet() {
   const [action, setAction] = useState('idle');
   const [actionBtn, setActionBtn] = useState(false);
   const [initialLoading, setInitialLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const moodDisplayMap = {
     happy: 'Happy',
     hungry: 'Hungry',
     dirty: 'Dirty',
     sad: 'Sad',
-    calm: 'Calm',
   };
 
   const loadPet = async () => {
@@ -28,6 +28,7 @@ export function Pet() {
       if (data) {
         setPet(data);
         setAction(data.activity);
+        setErrorMessage('');
       }
     } catch (err) {
       console.error('Failed to fetch pet:', err);
@@ -68,6 +69,7 @@ export function Pet() {
       }, 5000);
     } catch (err) {
       console.error('Action error:', err);
+      setErrorMessage(err.message);
       setActionBtn(false);
     }
   };
@@ -79,7 +81,9 @@ export function Pet() {
     <div className={styles.petContainer}>
       <div className={styles.petBgWrapper}>
         <img src={IMAGES.petBg} alt="wooden background" className={styles.petBg} />
-        <div className={styles.petMoodBanner}>{pet.mood ? moodDisplayMap[pet.mood] || pet.mood : ''}</div>
+        <div className={styles.petMoodBanner}>
+          {errorMessage ? errorMessage : pet.mood ? moodDisplayMap[pet.mood] || pet.mood : ''}
+        </div>
         <div className={styles.petCopy}>
           <PetSprite type={pet.type} activity={action} mood={pet.mood} />
         </div>
