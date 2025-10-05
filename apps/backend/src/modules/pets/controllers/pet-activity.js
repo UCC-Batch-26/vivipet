@@ -19,10 +19,10 @@ export async function petActivity(req, res) {
     switch (activity) {
       case PET_ACTIVITY.PLAY:
         if (pet.hungry > hungerLevel) {
-          return res.status(400).json({ message: 'Pet is too hungry to play' });
+          return res.status(400).json({ message: 'Pet is hungry to play' });
         }
         if (pet.dirty > dirtinessLevel) {
-          return res.status(400).json({ message: 'Pet is too dirty to play' });
+          return res.status(400).json({ message: 'Pet is dirty to play' });
         }
 
         pet.hungry = Math.min(100, pet.hungry + 10);

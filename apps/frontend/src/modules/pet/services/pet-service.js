@@ -20,7 +20,7 @@ export async function fetchPet(userId) {
   }
 }
 
-export async function petAction(activity, userId, setPet, setAction, setMood) {
+export async function petAction(activity, userId, setPet, setAction) {
   try {
     const response = await fetch(`${URL}/${userId}/activity`, {
       method: 'POST',
@@ -36,7 +36,6 @@ export async function petAction(activity, userId, setPet, setAction, setMood) {
 
     setPet(data.pet);
     setAction(data.pet.activity);
-    setMood(data.pet.mood);
   } catch (error) {
     console.error('Pet Action Failed', error);
     throw error;

@@ -5,7 +5,7 @@ Content-Type: application/json
 Origin: http://localhost:5173
 
 ### Get single pet by userId
-GET http://localhost:3000/pet/68e132a009b0fd8e64175d35
+GET http://localhost:3000/pet/68d64822bf34e5b13f8be455
 Origin: http://localhost:5173
 
 
