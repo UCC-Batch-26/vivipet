@@ -2,8 +2,8 @@ import { getMoodUpdate } from '#utils/get-mood.js';
 import { log } from '#utils/log.js';
 import { Pet, PET_ACTIVITY, PET_MOOD } from '../models/pet.js';
 
-const hungerLevel = 75;
-const dirtinessLevel = 75;
+const hungerLevel = 79;
+const dirtinessLevel = 79;
 
 export async function petActivity(req, res) {
   const { userId } = req.params;
@@ -19,20 +19,20 @@ export async function petActivity(req, res) {
     switch (activity) {
       case PET_ACTIVITY.PLAY:
         if (pet.hungry > hungerLevel) {
-          return res.status(400).json({ message: 'Pet is hungry to play' });
+          return res.status(400).json({ message: 'Pet is hungry to play!' });
         }
         if (pet.dirty > dirtinessLevel) {
-          return res.status(400).json({ message: 'Pet is dirty to play' });
+          return res.status(400).json({ message: 'Pet is dirty to play!' });
         }
 
-        pet.hungry = Math.min(100, pet.hungry + 10);
-        pet.dirty = Math.min(100, pet.dirty + 5);
+        pet.hungry = Math.min(100, pet.hungry + 20);
+        pet.dirty = Math.min(100, pet.dirty + 15);
         pet.mood = PET_MOOD.HAPPY;
         break;
 
       case PET_ACTIVITY.FEED:
         if (pet.hungry < 20) {
-          return res.status(400).json({ message: 'Pet is not hungry' });
+          return res.status(400).json({ message: 'Pet is not hungry!' });
         }
 
         pet.hungry = Math.max(0, pet.hungry - 40);
